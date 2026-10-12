@@ -1,16 +1,7 @@
-from generators.conf import TILE_WIDTH, CORNER
-from generators.utils import canvas, centered_image, text1, price
-
-def c():
-	c = canvas(TILE_WIDTH, CORNER, stroke=True)
-	c.elements.extend([
-		text1(),
-		price(200),
-		centered_image("decals/port.svg", scale=0.7)
-	])
-	return c
+from generators.tiles.tile import tile
+from generators.utils import centered_image
 
 def port(name: str):
-	port = c()
-	port.elements[1].text = name
+	port = tile(text=name, cost=200)
+	port.elements.append(centered_image("decals/port.svg", scale=0.7))
 	return port

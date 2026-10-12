@@ -2,35 +2,33 @@ from generators.conf import FONT, CURRENCY
 
 # SVG objects
 import svg
-def text():
+def text(txt=None):
 	return svg.Text(
-		text="TEXT",
+		text=txt,
 		text_anchor="middle",
 		dominant_baseline="middle",
 		font_family=FONT,
 		font_size="5"
 	)
-def text1():
-	t = text()
+def text1(txt=None):
+	t = text(txt)
 	t.x, t.y = "50%", "13%"
 	return t
-def text2():
-	t = text()
+def text2(txt=None):
+	t = text(txt)
 	t.x, t.y = "50%", "38%"
 	return t
 def price(value: int = 100):
-	p = text()
+	p = text(f"{value} {CURRENCY}")
 	p.x, p.y = "50%", "90%"
-	p.text = f"{value} {CURRENCY}"
 	return p
 def rect(fill: str = "none", stroke: bool = True):
 	r = svg.Rect(
 		width="100%", height="100%",
-		fill="none",
+		fill=fill,
 		stroke="black",
 		stroke_width=0.5
 	)
-	r.fill = fill
 	if (not stroke):
 		r.stroke = "none"
 		r.stroke_width = 0

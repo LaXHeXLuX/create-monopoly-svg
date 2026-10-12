@@ -1,56 +1,56 @@
 from generators.conf import BG_COLOR, CENTER, CORNER, TILE_WIDTH, BOARD
 from generators.utils import rect, canvas, position_element
-from generators.tiles.property import card
+from generators.tiles.property import property
 from generators.tiles.chance_community import chance, community
 from generators.tiles.port import port
 from generators.tiles.tax_utility import tax1, tax2, util1, util2
-from generators.tiles.corner import corners
+from generators.corner import corners
 from generators.center import center
 
 rowElements = [
 	[
-		card("EMMASTE", 1, 60),
+		property("EMMASTE", 1, 60),
 		community(),
-		card("TOHVRI", 1, 60),
+		property("TOHVRI", 1, 60),
 		tax1(),
 		port("SÕRU"),
-		card("NURSTE", 2, 100),
+		property("NURSTE", 2, 100),
 		chance(),
-		card("MÄNSPE", 2, 100),
-		card("ÕNGU", 2, 120)
+		property("MÄNSPE", 2, 100),
+		property("ÕNGU", 2, 120)
 	],
 	[
-		card("KÕPU", 3, 140),
+		property("KÕPU", 3, 140),
 		util1(),
-		card("LUIDJA", 3, 140),
-		card("KÕRGESSAARE", 3, 160),
+		property("LUIDJA", 3, 140),
+		property("KÕRGESSAARE", 3, 160),
 		port("KALANA"),
-		card("LAUKA", 4, 180),
+		property("LAUKA", 4, 180),
 		community(),
-		card("MALVASTE", 4, 180),
-		card("TAHKUNA", 4, 200)
+		property("MALVASTE", 4, 180),
+		property("TAHKUNA", 4, 200)
 	],
 	[
-		card("KÄRDLA", 5, 220),
+		property("KÄRDLA", 5, 220),
 		chance(),
-		card("TUBALA", 5, 220),
-		card("PALADE", 5, 240),
+		property("TUBALA", 5, 220),
+		property("PALADE", 5, 240),
 		port("HELTERMAA"),
-		card("HELLAMAA", 6, 260),
-		card("SUUREMÕISA", 6, 260),
+		property("HELLAMAA", 6, 260),
+		property("SUUREMÕISA", 6, 260),
 		util2(),
-		card("KASSARI", 6, 280)
+		property("KASSARI", 6, 280)
 	],
 	[
-		card("KÄINA", 7, 300),
-		card("MÄELTSE", 7, 300),
+		property("KÄINA", 7, 300),
+		property("MÄELTSE", 7, 300),
 		community(),
-		card("JAUSA", 7, 320),
+		property("JAUSA", 7, 320),
 		port("ORJAKU"),
 		chance(),
-		card("MÄNNAMAA", 8, 350),
+		property("MÄNNAMAA", 8, 350),
 		tax2(),
-		card("LELU", 8, 400)
+		property("LELU", 8, 400)
 	]
 ]
 

@@ -1,21 +1,13 @@
-import svg
-from generators.conf import TILE_WIDTH, CORNER
-from generators.utils import canvas, centered_image, text1
+from generators.tiles.tile import tile
+from generators.utils import centered_image
 
-def c():
-	c = canvas(TILE_WIDTH, CORNER, stroke=True)
-	c.elements.append(text1())
+def c(text, href):
+	c = tile(text=text)
+	c.elements.insert(1, centered_image(href, cy="55%", scale=0.8))
 	return c
 
 def chance():
-	chance = c()
-	chance.elements[1].text = "LOOS"
-	chance.elements.insert(1, centered_image("decals/question.svg", cy="55%"))
-	return chance
+	return c("LOOS", "decals/question.svg")
 
 def community():
-	community = c()
-	community.elements[1].text = "ÜHISFOND"
-	community.elements.insert(1, centered_image("decals/piggy_bank.svg", cy="55%", scale=0.8))
-
-	return community
+	return c("ÜHISFOND", "decals/piggy_bank.svg")
