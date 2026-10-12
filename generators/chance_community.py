@@ -1,9 +1,9 @@
 import svg
-from conf import CARD_WIDTH, CORNER
+from conf import TILE_WIDTH, CORNER
 from utils import canvas, centered_image, text1
 
 def c():
-	c = canvas(CARD_WIDTH, CORNER, stroke=True)
+	c = canvas(TILE_WIDTH, CORNER, stroke=True)
 	c.elements.append(text1())
 	return c
 

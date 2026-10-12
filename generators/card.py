@@ -1,12 +1,12 @@
 import svg
-from conf import ZONES, CARD_WIDTH, CORNER, CURRENCY
+from conf import ZONES, TILE_WIDTH, CORNER, CURRENCY
 from utils import text2, price, canvas
 
 def c():
-	c = canvas(CARD_WIDTH, CORNER, stroke=True)
+	c = canvas(TILE_WIDTH, CORNER, stroke=True)
 	c.elements.extend([
 		svg.Rect(
-			width=CARD_WIDTH, height=15,
+			width=TILE_WIDTH, height=15,
 			fill="#fac",
 			stroke="black",
 			stroke_width=0.5

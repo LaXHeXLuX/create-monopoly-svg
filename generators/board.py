@@ -1,4 +1,4 @@
-from conf import BG_COLOR, CENTER, CORNER, CARD_WIDTH, BOARD
+from conf import BG_COLOR, CENTER, CORNER, TILE_WIDTH, BOARD
 from utils import rect, canvas, position_element
 from card import card
 from chance_community import chance, community
@@ -56,11 +56,11 @@ rowElements = [
 
 def row(index: int):
 	row = canvas(CENTER, CORNER)
-	x = CENTER - CARD_WIDTH
+	x = CENTER - TILE_WIDTH
 	for el in rowElements[index]:
 		el.x = x
 		row.elements.append(el)
-		x -= CARD_WIDTH
+		x -= TILE_WIDTH
 	return row
 
 boardBase = canvas(BOARD, BOARD)
