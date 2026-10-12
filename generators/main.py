@@ -9,7 +9,7 @@ def print_list(arr):
 	return f"{{{", ".join(arr)}}}"
 
 from board import board
-from card import card
+from property import card
 from center import center
 from chance_community import chance, community
 from corner import go, jail, free_parking, go_to_jail

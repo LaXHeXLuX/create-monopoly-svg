@@ -1,6 +1,6 @@
 from conf import BG_COLOR, CENTER, CORNER, TILE_WIDTH, BOARD
 from utils import rect, canvas, position_element
-from card import card
+from property import card
 from chance_community import chance, community
 from port import port
 from tax_utility import tax1, tax2, util1, util2
