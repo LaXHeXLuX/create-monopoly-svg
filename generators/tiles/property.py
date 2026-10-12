@@ -1,12 +1,19 @@
-from generators.tiles.tile import tile
-from generators.conf import ZONES
-from generators.utils import rect, text2, price
+from generators.tiles.utils import tile_base
+from generators.utils import rect, text2
+from generators.conf import ZONES, PROPERTY_NAME
 
-def property(name: str, zone: int, cost: int):
+def cost(zone: int, index: int):
+	if zone == 1: return 60
+	if zone == 8: return 300 + 50*index
+	return 20 + zone*40 + (index // 3)*20
+
+def property(zone: int, index: int):
 	zone = int(zone)
-	cost = int(cost)
-	property = tile(cost=cost)
+	index = int(index)
+	c = cost(zone, index)
+	name = PROPERTY_NAME[zone-1][index-1]
+	property = tile_base(cost=c)
 	r = rect(fill=ZONES[zone])
 	r.height = "25%"
-	property.elements.extend([r, text2(name), price(cost)])
+	property.elements.extend([r, text2(name)])
 	return property

@@ -13,23 +13,23 @@ from generators.tiles.property import property
 from generators.center import center
 from generators.tiles.chance_community import chance, community
 from generators.corner import go, jail, free_parking, go_to_jail
-from generators.tiles.port import port
-from generators.tiles.tax_utility import tax1, tax2, util1, util2
+from generators.tiles.station import station
+from generators.tiles.tax_utility import tax, util
 
 arg_map = {
 	"p": property,
 	"ce": center,
 	"ch": chance,
-	"co": community,
+	"cc": community,
 	"go": go,
 	"j": jail,
 	"fp": free_parking,
 	"gj": go_to_jail,
-	"p": port,
-	"t1": tax1,
-	"t2": tax2,
-	"u1": util1,
-	"u2": util2
+	"s": station,
+	"t1": tax(1),
+	"t2": tax(2),
+	"u1": util(1),
+	"u2": util(2)
 }
 
 import sys

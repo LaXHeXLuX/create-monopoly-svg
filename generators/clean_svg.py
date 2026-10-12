@@ -11,7 +11,6 @@ FONT_STYLE = (
 	f"</style>"
 )
 
-
 def embed(path: Path) -> str:
 	svg = path.read_text(encoding="utf-8")
 

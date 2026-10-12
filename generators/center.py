@@ -1,5 +1,5 @@
 import svg
-from generators.conf import CENTER_COLOR, CENTER, FONT
+from generators.conf import CENTER_COLOR, CENTER, FONT, CC_NAME, CH_NAME
 from generators.utils import rect, canvas, position_element, centered_image
 
 WIDTH = 88
@@ -37,8 +37,8 @@ def center():
 	center.elements.extend([
 		rect(CENTER_COLOR),
 		centered_image("decals/kaart.svg", rotation=-45, scale=1.2),
-		position_element(card_place("ÜHISFOND"), PADDING + HEIGHT, PADDING, 1, False),
-		position_element(card_place("LOOS"), CENTER - PADDING - HEIGHT, CENTER - PADDING, 3, False)
+		position_element(card_place(CC_NAME), PADDING + HEIGHT, PADDING, 1, False),
+		position_element(card_place(CH_NAME), CENTER - PADDING - HEIGHT, CENTER - PADDING, 3, False)
 	])
 
 	return center

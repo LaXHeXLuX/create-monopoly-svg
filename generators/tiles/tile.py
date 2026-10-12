@@ -1,9 +1,21 @@
-from generators.conf import TILE_WIDTH, CORNER
-from generators.utils import canvas, price, text1, centered_image
+from generators.tiles.chance_community import chance, community
+from generators.tiles.property import property
+from generators.tiles.station import station
+from generators.tiles.tax_utility import tax, util
 
-def tile(text=None, href=None, cost=None):
-	tile = canvas(TILE_WIDTH, CORNER, stroke=True)
-	if (text != None): tile.elements.append(text1(text))
-	if (href != None): tile.elements.append(centered_image(href))
-	if (cost != None): tile.elements.append(price(cost))
-	return tile
+def tile(id: str):
+	if (id == "CH"):
+		return chance()
+	if (id == "CC"):
+		return community()
+	i = int(id[1])
+	if (id[0] == "P"):
+		return property(i, int(id[2]))
+	if (id[0] == "S"):
+		return station(i)
+	if (id[0] == "T"):
+		return tax(i)
+	if (id[0] == "U"):
+		return util(i)
+
+	raise Exception(f"invalid id {id}")
