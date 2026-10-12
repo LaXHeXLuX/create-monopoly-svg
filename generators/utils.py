@@ -1,4 +1,4 @@
-from conf import FONT, CURRENCY
+from generators.conf import FONT, CURRENCY
 
 # SVG objects
 import svg

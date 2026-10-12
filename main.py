@@ -2,19 +2,19 @@ def main(canvas):
 	file = open("pytest.svg", "w+", encoding="UTF8")
 	file.write(str(canvas))
 	file.close()
-	import clean_svg as clean_svg
+	import generators.clean_svg as clean_svg
 	clean_svg.main()
 
 def print_list(arr):
 	return f"{{{", ".join(arr)}}}"
 
-from board import board
-from property import card
-from center import center
-from chance_community import chance, community
-from corner import go, jail, free_parking, go_to_jail
-from port import port
-from tax_utility import tax1, tax2, util1, util2
+from generators.board import board
+from generators.tiles.property import card
+from generators.center import center
+from generators.tiles.chance_community import chance, community
+from generators.tiles.corner import go, jail, free_parking, go_to_jail
+from generators.tiles.port import port
+from generators.tiles.tax_utility import tax1, tax2, util1, util2
 
 arg_map = {
 	"c": card,

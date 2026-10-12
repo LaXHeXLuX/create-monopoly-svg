@@ -1,5 +1,5 @@
-from conf import TILE_WIDTH, CORNER
-from utils import canvas, centered_image, text1, price
+from generators.conf import TILE_WIDTH, CORNER
+from generators.utils import canvas, centered_image, text1, price
 
 def c():
 	c = canvas(TILE_WIDTH, CORNER, stroke=True)

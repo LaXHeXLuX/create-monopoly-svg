@@ -1,6 +1,6 @@
 import svg
-from conf import TILE_WIDTH, CORNER
-from utils import canvas, centered_image, text1
+from generators.conf import TILE_WIDTH, CORNER
+from generators.utils import canvas, centered_image, text1
 
 def c():
 	c = canvas(TILE_WIDTH, CORNER, stroke=True)

@@ -1,6 +1,6 @@
 import svg
-from conf import CORNER, FONT
-from utils import wrap, canvas, centered_image
+from generators.conf import CORNER, FONT
+from generators.utils import wrap, canvas, centered_image
 
 def c():
 	return canvas(CORNER, CORNER, stroke=True)

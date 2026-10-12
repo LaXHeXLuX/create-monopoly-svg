@@ -1,6 +1,6 @@
 import svg
-from conf import ZONES, TILE_WIDTH, CORNER, CURRENCY
-from utils import text2, price, canvas
+from generators.conf import ZONES, TILE_WIDTH, CORNER, CURRENCY
+from generators.utils import text2, price, canvas
 
 def c():
 	c = canvas(TILE_WIDTH, CORNER, stroke=True)

@@ -1,6 +1,6 @@
 import svg
-from conf import CENTER_COLOR, CENTER, FONT
-from utils import rect, canvas, position_element, centered_image
+from generators.conf import CENTER_COLOR, CENTER, FONT
+from generators.utils import rect, canvas, position_element, centered_image
 
 WIDTH = 88
 HEIGHT = 56
