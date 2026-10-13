@@ -1,23 +1,13 @@
-import svg
 from generators.conf import CORNER, FONT
-from generators.utils import wrap, canvas, centered_image
+from generators.utils import text, rect, wrap, canvas, centered_image
 
 def c():
 	return canvas(CORNER, CORNER, stroke=True)
 
-def rotated_text(x, y, text: str, rotation: int = -45, size: int = 7):
-	return wrap(
-		svg.Text(
-			x=0, y=0,
-			text=text,
-			text_anchor="middle",
-			dominant_baseline="middle",
-			font_family=FONT,
-			font_size=size,
-			transform=f"rotate({rotation})",
-		), 
-		x, y
-	)
+def rotated_text(x, y, txt: str, rotation: int = -45, size: int = 7):
+	t = text(txt, size)
+	t.transform = f"rotate({rotation})"
+	return wrap(t, x, y)
 
 def go():
 	go = c()
@@ -35,14 +25,10 @@ def jail():
 	HALF1 = JAIL_SQUARE_WIDTH_PERCENT / 2
 	HALF2 = (100 - JAIL_SQUARE_WIDTH_PERCENT) / 2
 	jail = c()
+	r = rect("orange")
+	r.width, r.height = JAIL_SQUARE_WIDTH, JAIL_SQUARE_WIDTH
 	jail.elements.extend([
-		svg.Rect(
-			x=0, y=0,
-			width=JAIL_SQUARE_WIDTH, height=JAIL_SQUARE_WIDTH,
-			fill="orange",
-			stroke="black",
-			stroke_width=0.5
-		),
+		r,
 		rotated_text(18, 18, "PIHLA"),
 		rotated_text(24, 24, "RABAS"),
 		rotated_text(30, 30, "EKSINUD"),

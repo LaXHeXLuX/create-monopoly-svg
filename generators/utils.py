@@ -2,13 +2,13 @@ from generators.conf import FONT, CURRENCY
 
 # SVG objects
 import svg
-def text(txt=None):
+def text(txt=None, size=5):
 	return svg.Text(
 		text=txt,
 		text_anchor="middle",
 		dominant_baseline="middle",
 		font_family=FONT,
-		font_size="5"
+		font_size=size
 	)
 def text1(txt=None):
 	t = text(txt)
@@ -49,7 +49,7 @@ def wrap(element: svg, x, y):
 		elements=[element],
 	)
 
-def position_element(element: svg, x, y, rotate: int, samePlace: bool = True):
+def position_element(element: svg, x, y, rotate: int = 0, samePlace: bool = True):
 	element.x = x
 	element.y = y
 	if (rotate > 0): 

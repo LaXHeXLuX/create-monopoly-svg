@@ -1,27 +1,17 @@
-import svg
 from generators.conf import CENTER_COLOR, CENTER, FONT, CC_NAME, CH_NAME
-from generators.utils import rect, canvas, position_element, centered_image
-
-WIDTH = 88
-HEIGHT = 56
+from generators.utils import text, rect, canvas, position_element, centered_image
+from generators.cards.utils import WIDTH, HEIGHT
 
 def c():
 	dotted_box = rect()
 	dotted_box.stroke_width = "1.5"
 	dotted_box.stroke_dasharray = "2"
 
+	t = text(size=8)
+	t.x, t.y = "50%", "50%"
+
 	c = canvas(WIDTH, HEIGHT, stroke=False)
-	c.elements.extend([
-		dotted_box,
-		svg.Text(
-			x=44, y=28,
-			text="TEXT",
-			text_anchor="middle",
-			dominant_baseline="middle",
-			font_family=FONT,
-			font_size="8"
-		)
-	])
+	c.elements.extend([dotted_box, t])
 
 	return c
 
