@@ -20,14 +20,14 @@ boardBase.elements.append(rect(BG_COLOR, stroke=False))
 
 boardRows = canvas(BOARD, BOARD)
 boardRows.elements.extend([
-	position_element(corners[0], BOARD-CORNER, BOARD-CORNER, 0),
-	position_element(row(0), CORNER, BOARD-CORNER, 0),
-	position_element(corners[1], 0, BOARD-CORNER, 1),
-	position_element(row(1), CORNER, CORNER, 1, False),
-	position_element(corners[2], 0, 0, 2),
-	position_element(row(2), BOARD-CORNER, CORNER, 2, False),
-	position_element(corners[3], BOARD-CORNER, 0, 3),
-	position_element(row(3), BOARD-CORNER, BOARD-CORNER, 3, False)
+	position_element(corners[0], cx=BOARD-CORNER, cy=BOARD-CORNER, rotation=0),
+	position_element(row(0), cx=CORNER, cy=BOARD-CORNER, rotation=0),
+	position_element(corners[1], cx=CORNER, cy=BOARD-CORNER, rotation=90),
+	position_element(row(1), cx=CORNER, cy=CORNER, rotation=90),
+	position_element(corners[2], cx=CORNER, cy=CORNER, rotation=180),
+	position_element(row(2), cx=BOARD-CORNER, cy=CORNER, rotation=180),
+	position_element(corners[3], cx=BOARD-CORNER, cy=CORNER, rotation=270),
+	position_element(row(3), cx=BOARD-CORNER, cy=BOARD-CORNER, rotation=270)
 ])
 
 def board():
@@ -35,7 +35,7 @@ def board():
 	board.viewBox = f"0 0 {BOARD} {BOARD}"
 	board.elements.extend([
 		boardBase, 
-		position_element(center(), CORNER, CORNER, 0), 
+		position_element(center(), cx=CORNER, cy=CORNER),
 		boardRows
 	])
 	return board

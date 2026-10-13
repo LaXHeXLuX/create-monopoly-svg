@@ -49,30 +49,20 @@ def wrap(element: svg, x, y):
 		elements=[element],
 	)
 
-def position_element(element: svg, x, y, rotate: int = 0, samePlace: bool = True):
-	element.x = x
-	element.y = y
-	if (rotate > 0): 
-		newX, newY = x, y
-		if (samePlace): 
-			newX = x + element.width/2
-			newY = y + element.height/2
-		element.transform = f"rotate({90 * rotate} {newX} {newY})"
-	return element
+def image(href):
+	return svg.Image(
+		href=href,
+		x="-50%", y="-50%",
+		width="100%", height="100%"
+	)
 
-def centered_image(href, rotation=0, scale=1, cx="50%", cy="50%"):
+def position_element(el: svg, rotation=0, scale=1, cx="50%", cy="50%"):
 	transforms = []
 	if rotation != 0:
 		transforms.append(f"rotate({rotation})")
 	if scale != 1:
 		transforms.append(f"scale({scale})")
 
-	return svg.SVG(
-		x=cx, y=cy, overflow="visible",
-		elements=[svg.Image(
-			href=href,
-			x="-50%", y="-50%",
-			width="100%", height="100%",
-			transform=" ".join(transforms) or None,
-		)],
-	)
+	el.transform = " ".join(transforms)
+
+	return wrap(el, cx, cy)

@@ -1,5 +1,5 @@
-from generators.conf import CORNER, FONT
-from generators.utils import text, rect, wrap, canvas, centered_image
+from generators.conf import CORNER
+from generators.utils import text, rect, wrap, canvas, position_element, image
 
 def c():
 	return canvas(CORNER, CORNER, stroke=True)
@@ -15,7 +15,7 @@ def go():
 		rotated_text(15, 15, "MÖÖDUDES", size=5),
 		rotated_text(19, 19, "SAAD 200 €", size=5),
 		rotated_text(32, 32, "START", size=12),
-		centered_image("decals/arrow.svg", rotation=180, scale=0.6, cx="70%", cy="70%")
+		position_element(image("decals/arrow.svg"), rotation=180, scale=0.6, cx="70%", cy="70%")
 	])
 	return go
 
@@ -43,7 +43,7 @@ def free_parking():
 	free_parking.elements.extend([
 		rotated_text(15, 15, "VABA"),
 		rotated_text(45, 45, "LÕKKEPLATS"),
-		centered_image("decals/fire.svg", rotation=-45, scale=0.45, cy="45%", cx="45%")
+		position_element(image("decals/fire.svg"), rotation=-45, scale=0.45, cy="45%", cx="45%")
 	])
 	return free_parking
 
@@ -52,7 +52,7 @@ def go_to_jail():
 	go_to_jail.elements.extend([
 		rotated_text(17, 17, "EKSID ÄRA"),
 		rotated_text(45, 45, "PIHLA RAPPA"),
-		centered_image("decals/compass.svg", rotation=-45, scale=0.45, cy="48%", cx="48%")
+		position_element(image("decals/compass.svg"), rotation=-45, scale=0.45, cy="48%", cx="48%")
 	])
 	return go_to_jail
 
