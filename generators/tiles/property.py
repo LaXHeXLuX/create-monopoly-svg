@@ -1,5 +1,5 @@
-from generators.tiles.utils import tile_base
-from generators.utils import rect, text2
+from generators.tiles.utils import tile_base, text2
+from generators.utils import rect
 from generators.conf import ZONES, PROPERTY_NAME
 
 def cost(zone: int, index: int):

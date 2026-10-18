@@ -2,7 +2,9 @@ from generators.conf import CORNER
 from generators.utils import text, rect, wrap, canvas, position_element, image
 
 def c():
-	return canvas(CORNER, CORNER, stroke=True)
+	c = canvas(CORNER, CORNER)
+	c.elements.append(rect())
+	return c
 
 def rotated_text(x, y, txt: str, rotation: int = -45, size: int = 7):
 	t = text(txt, size)

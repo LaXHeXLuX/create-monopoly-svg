@@ -1,27 +1,20 @@
-from generators.conf import FONT, CURRENCY
+from generators.conf import FONT, FONT_BOLD
 
 # SVG objects
 import svg
-def text(txt=None, size=5):
+def text(txt, size=5, bold=False):
 	return svg.Text(
-		text=txt,
-		text_anchor="middle",
-		dominant_baseline="middle",
-		font_family=FONT,
-		font_size=size
+		text = txt,
+		text_anchor = "middle",
+		dominant_baseline = "middle",
+		font_family = FONT_BOLD if bold else FONT,
+		font_size = size
 	)
-def text1(txt=None):
-	t = text(txt)
-	t.x, t.y = "50%", "13%"
-	return t
-def text2(txt=None):
-	t = text(txt)
-	t.x, t.y = "50%", "38%"
-	return t
-def price(value: int = 100):
-	p = text(f"{value} {CURRENCY}")
-	p.x, p.y = "50%", "90%"
-	return p
+
+def text_with_bg(txt, bg, padding=1, size=5, bold=False):
+	t = text(txt, size=size, bold=bold)
+	r = rect()
+
 def rect(fill: str = "none", stroke: bool = True):
 	r = svg.Rect(
 		width="100%", height="100%",
@@ -33,14 +26,13 @@ def rect(fill: str = "none", stroke: bool = True):
 		r.stroke = "none"
 		r.stroke_width = 0
 	return r
-def canvas(w: int, h: int, stroke: bool = False):
-	canvas = svg.SVG(
+
+def canvas(w: int, h: int):
+	return svg.SVG(
 		width=w,
 		height=h,
 		elements=[]
 	)
-	if (stroke): canvas.elements.append(rect())
-	return canvas
 
 # utility methods
 def wrap(element: svg, x, y):

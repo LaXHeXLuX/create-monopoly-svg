@@ -9,27 +9,34 @@ def print_list(arr):
 	return f"{{{", ".join(arr)}}}"
 
 from generators.board import board
-from generators.tiles.property import property
 from generators.center import center
-from generators.tiles.chance_community import chance, community
 from generators.corner import go, jail, free_parking, go_to_jail
+
+from generators.tiles.property import property
 from generators.tiles.station import station
 from generators.tiles.tax_utility import tax, util
+from generators.tiles.chance_community import chance, community
+
+from generators.cards.chance_community import chance as chance_card, community as community_card
 
 arg_map = {
-	"p": property,
 	"ce": center,
-	"ch": chance,
-	"cc": community,
 	"go": go,
 	"j": jail,
 	"fp": free_parking,
 	"gj": go_to_jail,
+
+	"p": property,
 	"s": station,
 	"t1": tax(1),
 	"t2": tax(2),
 	"u1": util(1),
-	"u2": util(2)
+	"u2": util(2),
+	"ch": chance,
+	"cc": community,
+
+	"chc": chance_card,
+	"ccc": community_card
 }
 
 import sys

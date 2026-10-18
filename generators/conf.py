@@ -8,7 +8,8 @@ TILE_WIDTH = CENTER / 9
 CURRENCY = "€"
 
 # fonts
-FONT = "ITC Kabel Std"
+FONT = "ITCKabelStd"
+FONT_BOLD = "ITCKabelStd-Bold"
 
 # colors
 BG_COLOR = "#e8f4ea"
@@ -76,6 +77,8 @@ PROPERTY_NAME = [
 ]
 
 # other names
+GAME = "MONOPOLY"
+
 CH_NAME = "LOOS"
 CC_NAME = "ÜHISFOND"
 
