@@ -1,13 +1,14 @@
-from generators.conf import FONT, FONT_BOLD
+from generators.conf import FONT, FONT_BOLD, FONT_LIGHT
+FONTS = [FONT_LIGHT, FONT, FONT_BOLD]
 
 # SVG objects
 import svg
-def text(txt, size=5, bold=False):
+def text(txt, size=5, weight=0):
 	return svg.Text(
 		text = txt,
 		text_anchor = "middle",
 		dominant_baseline = "middle",
-		font_family = FONT_BOLD if bold else FONT,
+		font_family = FONTS[weight+1],
 		font_size = size
 	)
 

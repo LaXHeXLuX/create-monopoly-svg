@@ -1,8 +1,9 @@
-from ..utils import canvas, rect, position_element
+from ..utils import canvas, rect
 
 WIDTH = 88
 HEIGHT = 56
-OFFSET = WIDTH * 0.037
+OFFSET = WIDTH * 0.039
+LOGO_BG_WIDTH = 14.5
 
 def card_base(portrait=True, stroke=True, bg="white"):
 	w, h = WIDTH, HEIGHT

@@ -10,6 +10,7 @@ CURRENCY = "€"
 # fonts
 FONT = "ITCKabelStd"
 FONT_BOLD = "ITCKabelStd-Bold"
+FONT_LIGHT = "ITCKabelStd-Book"
 
 # colors
 BG_COLOR = "#e8f4ea"
