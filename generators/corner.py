@@ -17,7 +17,7 @@ def go():
 		rotated_text(15, 15, "MÖÖDUDES", size=5),
 		rotated_text(19, 19, "SAAD 200 €", size=5),
 		rotated_text(32, 32, "START", size=12),
-		position_element(image("decals/arrow.svg"), rotation=180, scale=0.6, cx="70%", cy="70%")
+		position_element(image("GO"), rotation=180, scale=0.6, cx="70%", cy="70%")
 	])
 	return go
 
@@ -45,7 +45,7 @@ def free_parking():
 	free_parking.elements.extend([
 		rotated_text(15, 15, "VABA"),
 		rotated_text(45, 45, "LÕKKEPLATS"),
-		position_element(image("decals/fire.svg"), rotation=-45, scale=0.45, cy="45%", cx="45%")
+		position_element(image("FP"), rotation=-45, scale=0.45, cy="45%", cx="45%")
 	])
 	return free_parking
 
@@ -54,7 +54,7 @@ def go_to_jail():
 	go_to_jail.elements.extend([
 		rotated_text(17, 17, "EKSID ÄRA"),
 		rotated_text(45, 45, "PIHLA RAPPA"),
-		position_element(image("decals/compass.svg"), rotation=-45, scale=0.45, cy="48%", cx="48%")
+		position_element(image("GTJ"), rotation=-45, scale=0.45, cy="48%", cx="48%")
 	])
 	return go_to_jail
 

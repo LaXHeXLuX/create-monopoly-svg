@@ -42,9 +42,9 @@ def wrap(element: svg, x, y):
 		elements=[element],
 	)
 
-def image(href):
+def image(tag: str):
 	return svg.Image(
-		href=href,
+		href=f"decals/{tag}.svg",
 		x="-50%", y="-50%",
 		width="100%", height="100%"
 	)

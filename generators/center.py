@@ -20,7 +20,7 @@ def center():
 	center = canvas(CENTER, CENTER)
 	center.elements.extend([
 		rect(CENTER_COLOR),
-		position_element(image("decals/kaart.svg"), rotation=-45, scale=1.2),
+		position_element(image("kaart"), rotation=-45, scale=1.2),
 		position_element(card_place(CC_NAME), cx=PADDING + HEIGHT, cy=PADDING, rotation=90),
 		position_element(card_place(CH_NAME), cx=CENTER - PADDING - HEIGHT, cy=CENTER - PADDING, rotation=270)
 	])

@@ -18,6 +18,7 @@ from generators.tiles.tax_utility import tax, util
 from generators.tiles.chance_community import chance, community
 
 from generators.cards.chance_community import chance as chance_card, community as community_card
+from generators.cards.utility_card import util as util_card
 
 arg_map = {
 	"ce": center,
@@ -28,15 +29,14 @@ arg_map = {
 
 	"p": property,
 	"s": station,
-	"t1": tax(1),
-	"t2": tax(2),
-	"u1": util(1),
-	"u2": util(2),
+	"t": tax,
+	"u": util,
 	"ch": chance,
 	"cc": community,
 
 	"chc": chance_card,
-	"ccc": community_card
+	"ccc": community_card,
+	"uc": util_card,
 }
 
 import sys

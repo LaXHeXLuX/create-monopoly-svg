@@ -1,6 +1,6 @@
 from .utils import card_base, content, WIDTH, OFFSET, LOGO_BG_WIDTH
 from ..utils import text, rect, canvas, position_element
-from ..conf import GAME, CH_NAME, CC_NAME, FONT_LIGHT
+from ..conf import GAME, CH_NAME, CC_NAME
 
 TITLE_FONT_SIZE = WIDTH * 0.05
 CONTENT_WIDTH_PERCENT = 71
