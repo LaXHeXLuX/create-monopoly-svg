@@ -1,12 +1,14 @@
 from conf.ui import FONT, FONT_BOLD, FONT_LIGHT, IMAGE_SCALE
+from conf.texts import CURRENCY
 FONTS = [FONT_LIGHT, FONT, FONT_BOLD]
 
 # SVG objects
 import svg
-def text(txt, size=5, weight=0):
+def text(txt, size=5, weight=0, align=0):
+	anchor = ["end", "middle", "start"]
 	return svg.Text(
 		text = txt,
-		text_anchor = "middle",
+		text_anchor = anchor[align+1],
 		dominant_baseline = "middle",
 		font_family = FONTS[weight+1],
 		font_size = size
@@ -28,7 +30,7 @@ def rect(fill: str = "none", stroke: bool = True):
 		r.stroke_width = 0
 	return r
 
-def canvas(w: int, h: int):
+def canvas(w, h):
 	return svg.SVG(
 		width=w,
 		height=h,
@@ -67,3 +69,6 @@ def position_image(tag: str, rotation=0, scale=1, cx="50%", cy="50%"):
 		scale=IMAGE_SCALE[tag]*scale, 
 		cx=cx, cy=cy
 	)
+
+def price(value: int):
+	return f"{value} {CURRENCY}"

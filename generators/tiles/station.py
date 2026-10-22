@@ -3,6 +3,6 @@ from generators.utils import position_image
 from conf.texts import STATION_NAME
 
 def station(index: int):
-	station = tile_base(text=STATION_NAME[index-1], cost=200)
+	station = tile_base(txt=STATION_NAME[index-1], cost=200)
 	station.elements.append(position_image("S"))
 	return station
