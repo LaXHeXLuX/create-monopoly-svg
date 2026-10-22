@@ -1,5 +1,5 @@
 from generators.conf import CENTER_COLOR, CENTER, CC_NAME, CH_NAME
-from generators.utils import text, rect, canvas, position_element, image
+from generators.utils import text, rect, canvas, position_element, position_image
 from generators.cards.utils import WIDTH, HEIGHT
 
 def card_place(txt: str):
@@ -20,7 +20,7 @@ def center():
 	center = canvas(CENTER, CENTER)
 	center.elements.extend([
 		rect(CENTER_COLOR),
-		position_element(image("kaart"), rotation=-45, scale=1.2),
+		position_image("kaart", rotation=-45),
 		position_element(card_place(CC_NAME), cx=PADDING + HEIGHT, cy=PADDING, rotation=90),
 		position_element(card_place(CH_NAME), cx=CENTER - PADDING - HEIGHT, cy=CENTER - PADDING, rotation=270)
 	])

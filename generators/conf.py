@@ -95,5 +95,9 @@ IMAGE_SCALE = {
 	"T1": 0.2,
 	"T2": 0.2,
 	"U1": 0.8,
-	"U2": 0.8
+	"U2": 0.8,
+	"kaart": 1.2
 }
+
+# texts
+UTILITY_CARD_TEXT = "Ühe kommunaalettevõtte korral on rent 4-kordne täringusilmade arv.\n\nMõlema kommunaalettevõtte korral on rent 10-kordne täringusilmade arv."

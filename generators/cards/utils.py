@@ -1,10 +1,9 @@
-from ..utils import canvas, rect
+from ..utils import canvas, rect, text, position_element
 from ..conf import FONT_LIGHT
 
 WIDTH = 88
 HEIGHT = 56
 OFFSET = WIDTH * 0.039
-LOGO_BG_WIDTH = 14.5
 
 def card_base(portrait=True, stroke=True, bg="white"):
 	w, h = WIDTH, HEIGHT
@@ -23,6 +22,10 @@ def card_base(portrait=True, stroke=True, bg="white"):
 		
 	return cb
 
+def title(txt: str, y_percent):
+	txt = text(txt, size=WIDTH * 0.05, weight=1)
+	return position_element(txt, cy=f"{y_percent}%")
+
 from svg import ForeignObject, G
 
 CONTENT_LINE_HEIGHT = 4.6
@@ -31,10 +34,11 @@ text_style_items = [
 	"align-items: center",
 	"height: 100%",
 	"text-align: center",
+	"white-space: pre-line",
 	f"font-family: '{FONT_LIGHT}'"
 ]
 
-def content(txt: str, x_percent, y_percent, w_percent, h_percent, font_size=WIDTH*0.036, scale=10):
+def content(txt: str, w_percent, h_percent, x_percent=50, y_percent=50, font_size=WIDTH*0.036, scale=10):
 	fo = ForeignObject(
 		x=f"{scale * (x_percent - w_percent/2)}%", 
 		y=f"{scale * (y_percent - h_percent/2)}%", 

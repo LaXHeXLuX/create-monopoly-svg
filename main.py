@@ -18,7 +18,7 @@ from generators.tiles.tax_utility import tax, util
 from generators.tiles.chance_community import chance, community
 
 from generators.cards.chance_community import chance as chance_card, community as community_card
-from generators.cards.utility_card import util as util_card
+from generators.cards.utility import util as util_card
 
 arg_map = {
 	"ce": center,

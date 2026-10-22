@@ -1,4 +1,4 @@
-from generators.conf import FONT, FONT_BOLD, FONT_LIGHT
+from generators.conf import FONT, FONT_BOLD, FONT_LIGHT, IMAGE_SCALE
 FONTS = [FONT_LIGHT, FONT, FONT_BOLD]
 
 # SVG objects
@@ -59,3 +59,11 @@ def position_element(el: svg, rotation=0, scale=1, cx="50%", cy="50%"):
 	el.transform = " ".join(transforms)
 
 	return wrap(el, cx, cy)
+
+def position_image(tag: str, rotation=0, scale=1, cx="50%", cy="50%"):
+	return position_element(
+		image(tag), 
+		rotation=rotation, 
+		scale=IMAGE_SCALE[tag]*scale, 
+		cx=cx, cy=cy
+	)
