@@ -5,7 +5,7 @@ FONTS = [FONT_LIGHT, FONT, FONT_BOLD]
 # SVG objects
 import svg
 def text(txt, size=5, weight=0, align=0):
-	anchor = ["end", "middle", "start"]
+	anchor = ["start", "middle", "end"]
 	return svg.Text(
 		text = txt,
 		text_anchor = anchor[align+1],
