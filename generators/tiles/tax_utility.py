@@ -1,6 +1,6 @@
 from generators.tiles.utils import tile_base
 from generators.utils import position_image
-from generators.conf import T_NAME, T_PAY, U_NAME
+from conf.texts import T_NAME, T_PAY, U_NAME
 
 def tax(index: int):
 	index = int(index)

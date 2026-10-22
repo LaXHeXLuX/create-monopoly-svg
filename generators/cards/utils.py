@@ -1,5 +1,5 @@
-from ..utils import canvas, rect, text, position_element
-from ..conf import FONT_LIGHT
+from generators.utils import canvas, rect, text, position_element
+from conf.ui import FONT_LIGHT
 
 WIDTH = 88
 HEIGHT = 56

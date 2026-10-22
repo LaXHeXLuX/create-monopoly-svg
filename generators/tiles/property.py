@@ -1,6 +1,7 @@
 from generators.tiles.utils import tile_base, text2
 from generators.utils import rect
-from generators.conf import ZONES, PROPERTY_NAME
+from conf.ui import ZONES
+from conf.texts import PROPERTY_NAME
 
 def cost(zone: int, index: int):
 	if zone == 1: return 60

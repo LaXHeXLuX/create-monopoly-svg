@@ -1,4 +1,5 @@
-from generators.conf import TILE_WIDTH, CORNER, CURRENCY
+from conf.ui import TILE_WIDTH, CORNER
+from conf.texts import CURRENCY
 from generators.utils import canvas, rect, text, position_element, image
 
 def text1(txt=None):

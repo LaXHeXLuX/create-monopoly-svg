@@ -1,7 +1,7 @@
 import base64
 import re
 from pathlib import Path
-from generators.conf import FONT
+from conf.ui import FONT
 
 FONT_FILE = Path.home() / "Library/Fonts/ITCKabelStdMedium.TTF"
 

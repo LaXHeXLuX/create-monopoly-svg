@@ -1,6 +1,6 @@
-from .utils import card_base, title, content
-from ..utils import position_image
-from ..conf import STATION_NAME, UTILITY_CARD_TEXT
+from generators.cards.utils import card_base, title, content
+from generators.utils import position_image
+from conf.texts import STATION_NAME, UTILITY_CARD_TEXT
 
 def util(index: int):
 	index = int(index)

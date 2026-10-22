@@ -1,4 +1,4 @@
-from generators.conf import CORNER
+from conf.ui import CORNER
 from generators.utils import text, rect, wrap, canvas, position_element, image
 
 def c():

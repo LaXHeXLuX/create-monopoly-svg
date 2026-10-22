@@ -1,6 +1,6 @@
 from generators.tiles.utils import tile_base
 from generators.utils import position_image
-from generators.conf import CH_NAME, CC_NAME
+from conf.texts import CH_NAME, CC_NAME
 
 def c(text, image_tag):
 	c = tile_base(text=text)

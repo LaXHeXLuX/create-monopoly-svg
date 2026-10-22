@@ -1,4 +1,4 @@
-from generators.conf import FONT, FONT_BOLD, FONT_LIGHT, IMAGE_SCALE
+from conf.ui import FONT, FONT_BOLD, FONT_LIGHT, IMAGE_SCALE
 FONTS = [FONT_LIGHT, FONT, FONT_BOLD]
 
 # SVG objects

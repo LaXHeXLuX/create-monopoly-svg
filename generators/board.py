@@ -1,4 +1,4 @@
-from generators.conf import BG_COLOR, CENTER, CORNER, TILE_WIDTH, BOARD
+from conf.ui import BG_COLOR, CENTER, CORNER, TILE_WIDTH, BOARD
 from generators.utils import rect, canvas, position_element
 from generators.corner import corners
 from generators.center import center

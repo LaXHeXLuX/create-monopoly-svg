@@ -1,4 +1,5 @@
-from generators.conf import CENTER_COLOR, CENTER, CC_NAME, CH_NAME
+from conf.ui import CENTER_COLOR, CENTER
+from conf.texts import CC_NAME, CH_NAME
 from generators.utils import text, rect, canvas, position_element, position_image
 from generators.cards.utils import WIDTH, HEIGHT
 

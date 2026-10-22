@@ -1,6 +1,6 @@
-from .utils import card_base, title, content, WIDTH, OFFSET
-from ..utils import text, rect, canvas, position_element
-from ..conf import GAME, CH_NAME, CC_NAME
+from generators.cards.utils import card_base, title, content, WIDTH, OFFSET
+from generators.utils import text, rect, canvas, position_element
+from conf.texts import GAME, CH_NAME, CC_NAME
 
 CONTENT_WIDTH_PERCENT = 71
 CONTENT_HEIGHT_PERCENT = 70
