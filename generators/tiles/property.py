@@ -1,6 +1,6 @@
 from generators.tiles.utils import tile_base, text2
 from generators.utils import rect
-from conf.ui import ZONES
+from conf.ui import ZONE_COLORS
 from conf.texts import PROPERTY_NAME
 
 def cost(zone: int, index: int):
@@ -14,7 +14,7 @@ def property(zone: int, index: int):
 	c = cost(zone, index)
 	name = PROPERTY_NAME[zone-1][index-1]
 	property = tile_base(cost=c)
-	r = rect(fill=ZONES[zone])
+	r = rect(fill=ZONE_COLORS[zone])
 	r.height = "25%"
 	property.elements.extend([r, text2(name)])
 	return property

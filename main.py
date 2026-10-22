@@ -19,6 +19,7 @@ from generators.tiles.chance_community import chance, community
 
 from generators.cards.chance_community import chance as chance_card, community as community_card
 from generators.cards.utility import util as util_card
+from generators.cards.station import station as station_card
 
 arg_map = {
 	"ce": center,
@@ -37,6 +38,7 @@ arg_map = {
 	"chc": chance_card,
 	"ccc": community_card,
 	"uc": util_card,
+	"sc": station_card
 }
 
 import sys
