@@ -3,7 +3,6 @@ from generators.utils import rect, canvas, price
 from conf.texts import PROPERTY_NAME, PROPERTY_RIGHT, RENT, RENT_FOR_ZONE, HOUSE_PRICE, HOTEL_PRICE, PIECE
 from conf.ui import ZONE_COLORS
 from conf.game import PROPERTY_RENTS
-from generators.tiles.property import cost as property_cost
 
 OFFSET = OUTER_OFFSET + WIDTH * 0.035
 

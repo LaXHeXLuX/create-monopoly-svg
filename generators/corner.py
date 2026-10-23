@@ -1,4 +1,5 @@
 from conf.ui import CORNER
+from conf.game import GO_MONEY
 from generators.utils import text, rect, wrap, canvas, position_element, image
 
 def c():
@@ -15,7 +16,7 @@ def go():
 	go = c()
 	go.elements.extend([
 		rotated_text(15, 15, "MÖÖDUDES", size=5),
-		rotated_text(19, 19, "SAAD 200 €", size=5),
+		rotated_text(19, 19, f"SAAD {GO_MONEY} €", size=5),
 		rotated_text(32, 32, "START", size=12),
 		position_element(image("GO"), rotation=180, scale=0.6, cx="70%", cy="70%")
 	])

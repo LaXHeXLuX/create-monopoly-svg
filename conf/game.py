@@ -1,6 +1,61 @@
 # Here are constants that define the functional elements of the game, such as house prices, board layout, etc. 
 # Everything is initially set to the standard Monopoly rules
 
+ROW_COUNT = 4
+ROW_SIZE = 9
+def layout():
+	layout = [None] * ROW_SIZE * ROW_COUNT
+
+	layout[10] = "U1"
+	layout[25] = "U2"
+	layout[3] = "T1"
+	layout[34] = "T2"
+	
+	for i in range(ROW_COUNT):
+		layout[ROW_SIZE*i + ROW_SIZE//2] = f"S{i}"
+
+	for i in [1, 15, 29]:
+		layout[i] = "CC"
+
+	for i in [6, 19, 32]:
+		layout[i] = "CH"
+
+	layout[0] = "P11"
+	layout[2] = "P12"
+
+	pi = 2
+	ii = 1
+	for i in range(len(layout)):
+		if (layout[i] != None): continue
+
+		layout[i] = f"P{pi}{ii}"
+
+		ii += 1
+		if (ii > 3):
+			ii = 1
+			pi += 1
+
+	return layout
+LAYOUT = layout()
+
+def property_costs():
+	property_costs = [[60, 60]]
+
+	for zone in range(1, 7):
+		property_costs.append([])
+		for i in range(3):
+			price = 60 + zone*40 + (i // 3)*20
+			property_costs[zone].append(price)
+
+	property_costs.append([350, 500])
+
+	return property_costs
+PROPERTY_COSTS = property_costs()
+
+STATION_COST = 200
+UTILITY_COSTS = [150, 150]
+TAX_COSTS = [200, 100]
+
 PROPERTY_RENTS = [
 	[
 		[2, 10, 30, 90, 160, 250],
@@ -42,39 +97,4 @@ PROPERTY_RENTS = [
 	]
 ]
 
-ROW_COUNT = 4
-ROW_SIZE = 9
-def layout():
-	layout = [None] * ROW_SIZE * ROW_COUNT
-
-	layout[10] = "U1"
-	layout[25] = "U2"
-	layout[3] = "T1"
-	layout[34] = "T2"
-	
-	for i in range(ROW_COUNT):
-		layout[ROW_SIZE*i + ROW_SIZE//2] = f"S{i}"
-
-	for i in [1, 15, 29]:
-		layout[i] = "CC"
-
-	for i in [6, 19, 32]:
-		layout[i] = "CH"
-
-	layout[0] = "P11"
-	layout[2] = "P12"
-
-	pi = 2
-	ii = 1
-	for i in range(len(layout)):
-		if (layout[i] != None): continue
-
-		layout[i] = f"P{pi}{ii}"
-
-		ii += 1
-		if (ii > 3):
-			ii = 1
-			pi += 1
-
-	return layout
-LAYOUT = layout()
+GO_MONEY = 200
