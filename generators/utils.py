@@ -21,21 +21,22 @@ def text_with_bg(txt, bg, padding=1, size=5, bold=False):
 def rect(fill: str = "none", stroke: bool = True):
 	r = svg.Rect(
 		width="100%", height="100%",
-		fill=fill,
-		stroke="black",
-		stroke_width=0.5
+		fill=fill
 	)
-	if (not stroke):
-		r.stroke = "none"
-		r.stroke_width = 0
+	if (stroke):
+		r.stroke = "black"
+		r.stroke_width = 0.5
 	return r
 
-def canvas(w, h):
-	return svg.SVG(
+def canvas(w, h, overflow=False):
+	canvas = svg.SVG(
 		width=w,
 		height=h,
 		elements=[]
 	)
+	if overflow:
+		canvas.overflow = "visible"
+	return canvas
 
 # utility methods
 def wrap(element: svg, x, y):

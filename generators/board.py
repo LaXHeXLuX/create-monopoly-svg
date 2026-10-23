@@ -2,15 +2,13 @@ from conf.ui import BG_COLOR, CENTER, CORNER, TILE_WIDTH, BOARD
 from generators.utils import rect, canvas, position_element
 from generators.corner import corners
 from generators.center import center
-from generators.layout import layout
+from conf.game import LAYOUT
 from generators.tiles.tile import tile
-
-rowElements = layout()
 
 def row(index: int):
 	row = canvas(CENTER, CORNER)
 	for i in range(9):
-		el = tile(rowElements[9*index + i])
+		el = tile(LAYOUT[9*index + i])
 		el.x = CENTER - (i+1)*TILE_WIDTH
 		row.elements.append(el)
 	return row

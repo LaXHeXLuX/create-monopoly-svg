@@ -9,10 +9,10 @@ def cost(zone: int, index: int):
 	return 20 + zone*40 + (index // 3)*20
 
 def property(zone: int, index: int):
-	zone = int(zone)
-	index = int(index)
+	zone = int(zone) - 1
+	index = int(index) - 1
 	c = cost(zone, index)
-	name = PROPERTY_NAME[zone-1][index-1]
+	name = PROPERTY_NAME[zone][index]
 	property = tile_base(cost=c)
 	r = rect(fill=ZONE_COLORS[zone])
 	r.height = "25%"

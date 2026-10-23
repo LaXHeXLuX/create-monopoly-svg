@@ -1,16 +1,16 @@
 from generators.utils import canvas, rect, text, position_element
 from conf.ui import FONT_LIGHT
 
-WIDTH = 88
-HEIGHT = 56
-OFFSET = WIDTH * 0.039
+HEIGHT = 88
+WIDTH = 56
+OFFSET = HEIGHT * 0.039
 
 def card_base(portrait=True, stroke=True, bg="white"):
 	w, h = WIDTH, HEIGHT
-	if (portrait): w, h = HEIGHT, WIDTH
+	if (not portrait): w, h = HEIGHT, WIDTH
 	cb = canvas(w, h)
 	if bg != None:
-		r = rect(fill=bg) 
+		r = rect(fill=bg, stroke=False) 
 		cb.elements.append(r)
 	if (stroke):
 		r = rect() 
@@ -22,8 +22,8 @@ def card_base(portrait=True, stroke=True, bg="white"):
 		
 	return cb
 
-def title(txt: str, y_percent):
-	txt = text(txt, size=WIDTH * 0.05, weight=1)
+def title(txt: str, y_percent, weight=1, size=1):
+	txt = text(txt, size=WIDTH * 0.05 * size, weight=weight)
 	return position_element(txt, cy=f"{y_percent}%")
 
 from svg import ForeignObject, G
@@ -57,3 +57,13 @@ def content(txt: str, w_percent, h_percent, x_percent=50, y_percent=50, font_siz
 	g = G(transform=f"scale({1/scale})")
 	g.elements = [fo]
 	return g
+
+def left_right_aligned_text(l_txt: str, r_txt: str, size=3.2, w_percent=100):
+	l = text(l_txt, size=size, weight=-1, align=-1)
+	r = text(r_txt, size=size, weight=-1, align=1)
+	r.x = "100%"
+	c = canvas(f"{w_percent}%", "50%")
+	c.overflow = "visible"
+	c.elements.extend([l, r])
+	c.x = f"{50 - w_percent/2}%"
+	return c

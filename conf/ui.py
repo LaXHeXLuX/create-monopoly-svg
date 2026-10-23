@@ -17,7 +17,6 @@ FONT_LIGHT = "ITCKabelStd-Book"
 BG_COLOR = "#e8f4ea"
 CENTER_COLOR = "#d9f6ff"
 ZONE_COLORS = [
-	"#000000",
 	"#955436",
 	"#aae0fa",
 	"#d93a96",

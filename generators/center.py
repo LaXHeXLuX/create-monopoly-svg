@@ -11,7 +11,7 @@ def card_place(txt: str):
 	t = text(txt, size=8)
 	t.x, t.y = "50%", "50%"
 
-	card_place = canvas(WIDTH, HEIGHT)
+	card_place = canvas(HEIGHT, WIDTH)
 	card_place.elements.extend([dotted_box, t])
 	return card_place
 
@@ -22,8 +22,8 @@ def center():
 	center.elements.extend([
 		rect(CENTER_COLOR),
 		position_image("kaart", rotation=-45),
-		position_element(card_place(CC_NAME), cx=PADDING + HEIGHT, cy=PADDING, rotation=90),
-		position_element(card_place(CH_NAME), cx=CENTER - PADDING - HEIGHT, cy=CENTER - PADDING, rotation=270)
+		position_element(card_place(CC_NAME), cx=PADDING + WIDTH, cy=PADDING, rotation=90),
+		position_element(card_place(CH_NAME), cx=CENTER - PADDING - WIDTH, cy=CENTER - PADDING, rotation=270)
 	])
 
 	return center
