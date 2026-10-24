@@ -69,6 +69,7 @@ RENT_FOR_ZONE = "Rent värvikomplekti korral"
 HOUSE_PRICE = "Maja hind"
 HOTEL_PRICE = "Hotelli hind"
 PIECE = "tk"
+PLUS_4_HOUSES = "(pluss 4 maja)"
 
 # station card
 STATION_RENT = RENT.upper()
