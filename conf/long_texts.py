@@ -19,8 +19,8 @@ def pay(money):
 def collect(money):
 	return f"Saad {price(money)}"
 
-go_to_jail = f"Mine vangi.\nMine otse vangi.\nSa ei lähe läbi stardiruudu.\nSa ei saa {price(GO_MONEY)}."
-get_out_of_jail_free = f"VANGIST VABANEMISE KAART.\nSeda kaarti võib hoida kuni kasutamise või kauplemiseni."
+go_to_jail = f"Mine rappa.\nMine otse rappa.\nSa ei lähe läbi stardiruudu.\nSa ei saa {price(GO_MONEY)}."
+get_out_of_jail_free = f"RABAST PÄÄSEMISE KAART.\nSeda kaarti võib hoida kuni kasutamise või kauplemiseni."
 
 def per_house_and_hotel(text: str, house_price: int, hotel_price: int):
 	return f"{text}.\nMaksa iga maja eest {price(house_price)}.\nMaksa iga hotelli eest {price(hotel_price)}."
@@ -36,11 +36,11 @@ CH_TEXTS = [
 	f"Mine stardiruudule.\n({collect(GO_MONEY)})",
 	f"Mine tagasi kolm ruutu.",
 	go_to_jail,
-	f"Trahv kiiruse ületamise eest.\n{pay(15)}.",
+	f"Trahv prügi maha viskamise eest.\n{pay(15)}.",
 	f"Sind valiti juhatuse esimeheks.\nMaksa igale mängijale {price(50)}.",
 	per_house_and_hotel("Teed üldremonti", 25, 100),
-	f"Pank maksab dividende.\n{collect(50)}.",
-	f"Majalaenu tähtaeg kukkus.\n{collect(150)}.",
+	f"Võitsid ostuloosis.\n{collect(50)}.",
+	f"Leidsid metsast varanduse.\n{collect(150)}.",
 	get_out_of_jail_free
 ]
 
@@ -48,17 +48,17 @@ CC_TEXTS = [
 	f"Mine stardiruudule.\n({collect(GO_MONEY)})",
 	get_out_of_jail_free,
 	go_to_jail,
-	f"Kooliarved.\n{pay(50)}.",
+	f"Ostad koolitarbeid.\n{pay(50)}.",
 	per_house_and_hotel("Teed tänavaparandusi", 40, 115),
-	f"Haigla arved.\n{pay(100)}.",
+	f"Olid autoõnnetuses.\n{pay(100)}.",
 	f"Arsti arved.\n{pay(50)}.",
-	f"Konsultanditasu.\n{collect(25)}.",
-	f"Said teise koha iludusvõistlusel.\n{collect(10)}.",
+	f"Aitasid naabrimeest.\n{collect(25)}.",
+	f"Said teise koha orienteerumisvõistlusel.\n{collect(10)}.",
 	f"Panga viga sinu kasuks.\n{collect(200)}.",
-	f"Müüsid aktsia.\n{collect(50)}.",
+	f"Korjasid ja müüsid mustikaid.\n{collect(50)}.",
 	f"Sul on sünnipäev.\nSaad igalt mängijalt {price(10)}.",
 	f"Saad päranduseks {price(100)}.",
 	f"Tulumaksutagastus.\n{collect(20)}.",
-	f"Elukindlustuse tähtaeg kukkus.\n{collect(100)}.",
-	f"Puhkusefondi tähtaeg kukkus.\n{collect(100)}."
+	f"Hiiumaa vald tänab sind.\n{collect(100)}.",
+	f"Kogusid rahapõrsa täis.\n{collect(100)}."
 ]
