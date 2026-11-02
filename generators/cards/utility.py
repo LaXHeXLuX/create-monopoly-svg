@@ -8,7 +8,7 @@ def util(index: int):
 	utility = card_base()
 	utility.elements.extend([
 		title(U_NAME[index], 45),
-		position_image("S", scale=0.65, cy="24%"),
+		position_image(f"U{index+1}", scale=0.65, cy="24%"),
 		content(UTILITY_CARD_TEXT, 70, 50, y_percent=71)
 	])
 	return utility
