@@ -44,10 +44,10 @@ def property_costs():
 	for zone in range(1, 7):
 		property_costs.append([])
 		for i in range(3):
-			price = 60 + zone*40 + (i // 3)*20
+			price = 60 + zone*40 + (i // 2)*20
 			property_costs[zone].append(price)
 
-	property_costs.append([350, 500])
+	property_costs.append([350, 400])
 
 	return property_costs
 PROPERTY_COSTS = property_costs()
