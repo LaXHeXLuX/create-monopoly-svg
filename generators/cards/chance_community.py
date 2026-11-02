@@ -1,5 +1,5 @@
 from generators.cards.utils import card_base, title, content, WIDTH, OFFSET
-from generators.utils import text, rect, canvas, position_element
+from generators.utils import text, rect, canvas, position_element, position_image
 from conf.texts import GAME, CH_NAME, CC_NAME
 
 CONTENT_WIDTH_PERCENT = 71
@@ -7,7 +7,7 @@ CONTENT_HEIGHT_PERCENT = 70
 CONTENT_LINE_HEIGHT = 4.6
 FO_SCALE = 10
 LOGO_BG_WIDTH = 14.5
-LOGO_FONT_SIZE = WIDTH * 0.0285
+LOGO_FONT_SIZE = WIDTH * 0.044
 
 def logo():
 	r = rect(fill="white", stroke=False)
@@ -26,11 +26,14 @@ def base():
 	cb.elements.append(l)
 	return cb
 
-def chance(txt: str, CH=True):
-	chance = base()
-	chance.elements.append(title(CH_NAME if CH else CC_NAME, y_percent=18))
-	chance.elements.append(content(txt, 71, 70, y_percent=54))
-	return chance
+def card(txt: str, CH=True):
+	card = base()
+	card.elements.append(title(CH_NAME if CH else CC_NAME, y_percent=19))
+	card.elements.append(content(txt, 75, 70, y_percent=57))
+	return card
+
+def chance(txt: str):
+	return card(txt, CH=True)
 
 def community(txt: str):
-	return chance(txt, CH=False)
+	return card(txt, CH=False)
