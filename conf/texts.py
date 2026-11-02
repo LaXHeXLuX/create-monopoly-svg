@@ -75,5 +75,7 @@ PLUS_4_HOUSES = "(pluss 4 maja)"
 STATION_RENT = RENT.upper()
 FOR_STATIONS = "sadama korral"
 
-# texts
-UTILITY_CARD_TEXT = "Ühe kommunaalettevõtte korral on rent 4-kordne täringusilmade arv.\n\nMõlema kommunaalettevõtte korral on rent 10-kordne täringusilmade arv."
+# card back
+PAWN_VALUE = "PANDI\nVÄÄRTUS"
+TO_UNPAWN_PAY = "PANDI VABASTAMISEKS\nMAKSA"
+IF_PAWNED = "Kui omand on panditud, pööra kaart näoga allapoole"

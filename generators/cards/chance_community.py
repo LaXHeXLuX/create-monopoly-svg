@@ -1,6 +1,7 @@
 from generators.cards.utils import card_base, title, content, WIDTH, OFFSET
 from generators.utils import text, rect, canvas, position_element, position_image
 from conf.texts import GAME, CH_NAME, CC_NAME
+from conf.ui import CH_BG, CC_BG
 
 CONTENT_WIDTH_PERCENT = 71
 CONTENT_HEIGHT_PERCENT = 70
@@ -37,3 +38,14 @@ def chance(txt: str):
 
 def community(txt: str):
 	return card(txt, CH=False)
+
+def back(CH=True):
+	cb = card_base(portrait=False, bg=CH_BG if CH else CC_BG)
+	cb.elements.append(position_image("CH" if CH else "CC", scale=0.75))
+	return cb
+
+def chance_back():
+	return back(CH=True)
+
+def community_back():
+	return back(CH=False)

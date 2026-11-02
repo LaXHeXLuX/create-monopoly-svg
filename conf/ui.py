@@ -27,6 +27,8 @@ ZONE_COLORS = [
 	"#0072bb"
 ]
 MAP = "#ceecd3"
+CH_BG = "#ffa4a4"
+CC_BG = "#f9e48e"
 
 # image scales
 IMAGE_SCALE = {
