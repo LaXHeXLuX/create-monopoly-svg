@@ -22,8 +22,8 @@ def card_base(portrait=True, stroke=True, bg="white"):
 		
 	return cb
 
-def title(txt: str, y_percent, weight=1, size=1):
-	txt = text(txt, size=WIDTH * 0.05 * size, weight=weight)
+def title(txt: str, y_percent, size=1, weight=1, fill="#000000"):
+	txt = text(txt, size=WIDTH * 0.075 * size, weight=weight, fill=fill)
 	return position_element(txt, cy=f"{y_percent}%")
 
 from svg import ForeignObject, G
@@ -39,7 +39,7 @@ text_style_items = [
 	f"font-family: '{FONT_LIGHT}'"
 ]
 
-def content(txt: str, w_percent, h_percent, x_percent=50, y_percent=50, font_size=WIDTH*0.036, scale=10):
+def content(txt: str, w_percent, h_percent, x_percent=50, y_percent=50, font_size=1, scale=10, fill="#000000", line_height=CONTENT_LINE_HEIGHT):
 	fo = ForeignObject(
 		x=f"{scale * (x_percent - w_percent/2)}%", 
 		y=f"{scale * (y_percent - h_percent/2)}%", 
@@ -47,8 +47,9 @@ def content(txt: str, w_percent, h_percent, x_percent=50, y_percent=50, font_siz
 		height = f"{scale * h_percent}%"
 	)
 	style = "; ".join(text_style_items)
-	style += f"; font-size: {scale*font_size}px"
-	style += f"; line-height: {scale*CONTENT_LINE_HEIGHT}px"
+	style += f"; font-size: {scale*font_size*WIDTH*0.06}px"
+	style += f"; line-height: {scale*line_height}px"
+	style += f"; color: {fill}"
 
 	xmlns = "http://www.w3.org/1999/xhtml"
 	div = f"<div xmlns=\"{xmlns}\" style=\"{style}\">{txt}</div>"

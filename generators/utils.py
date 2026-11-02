@@ -4,19 +4,16 @@ FONTS = [FONT_LIGHT, FONT, FONT_BOLD]
 
 # SVG objects
 import svg
-def text(txt, size=5, weight=0, align=0):
+def text(txt, size=5, weight=0, align=0, fill="#000000"):
 	anchor = ["start", "middle", "end"]
 	return svg.Text(
 		text = txt,
+		fill=fill,
 		text_anchor = anchor[align+1],
 		dominant_baseline = "middle",
 		font_family = FONTS[weight+1],
 		font_size = size
 	)
-
-def text_with_bg(txt, bg, padding=1, size=5, bold=False):
-	t = text(txt, size=size, bold=bold)
-	r = rect()
 
 def rect(fill: str = "none", stroke: bool = True):
 	r = svg.Rect(
