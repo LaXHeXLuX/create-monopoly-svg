@@ -8,14 +8,29 @@ OFFSET = OUTER_OFFSET + WIDTH * 0.035
 HEADER_HEIGHT = HEIGHT * 0.19
 FOOTER_HEIGHT = HEIGHT * 0.18
 
+def house(fill=None, number=None):
+	scale = 4
+	c = canvas(scale, scale)
+	from svg import Path
+	house = Path(d="M 50 0 65 15 65 10 80 10 80 30 100 50 85 50 85 100 15 100 15 50 0 50")
+	house.transform = f"scale({0.01 * scale})"
+	if fill != None: house.fill = fill
+	c.elements.append(house)
+	if number != None: 
+		t = text(number, size=3, weight=1)
+		t.fill = "white"
+		t.x, t.y = "50%", "65%"
+		c.elements.append(t)
+	return c
+
 def header(color, name: str):
 	c = canvas(WIDTH - 2*OFFSET, HEADER_HEIGHT, overflow=True)
 	c.x, c.y = OFFSET, OFFSET
 
 	r = rect(fill=color)
 	r.stroke_width = 0.36
-	right = title(PROPERTY_RIGHT, 23, weight=-1, size=0.9)
-	name = title(name, 65, size=1.6)
+	right = title(PROPERTY_RIGHT, 23, size=0.6, weight=-1)
+	name = title(name, 65, size=1.07)
 
 	c.elements.extend([r, right, name])
 	return c
@@ -60,8 +75,19 @@ def rents(zone: int, index: int):
 	t2.y = f"{start + step}%"
 	c.elements.append(t2)
 	for i in range(1, len(rents)):
+		color = "#1FB25A"
+		number = i
+		if i == len(rents)-1:
+			color = "#ff5353"
+			number = None
 		t = left_right_aligned_text(RENT, price(rents[i]))
 		t.y = f"{start + (i+1)*step}%"
+
+		h = house(fill=color, number=number)
+		h.x = "18%"
+		h.y = "-12%"
+		t.elements.append(h)
+
 		c.elements.append(t)
 
 	return c
