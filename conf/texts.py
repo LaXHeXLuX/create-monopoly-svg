@@ -6,7 +6,7 @@ CURRENCY = "€"
 # place names
 STATION_NAME = [
 	"SÕRU",
-	"KALAMA",
+	"KALANA",
 	"HELTERMAA",
 	"ORJAKU"
 ]

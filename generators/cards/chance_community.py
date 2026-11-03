@@ -30,7 +30,7 @@ def base():
 def card(txt: str, CH=True):
 	card = base()
 	card.elements.append(title(CH_NAME if CH else CC_NAME, y_percent=19))
-	card.elements.append(content(txt, 75, 70, y_percent=57))
+	card.elements.append(content(txt, 75, 70, y_percent=55))
 	return card
 
 def chance(txt: str):
