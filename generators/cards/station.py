@@ -6,7 +6,7 @@ FONT_SIZE = 3.2
 
 def rent_line(index):
 	l = f"{index} {FOR_STATIONS}"
-	r = price(25 * 2**(index))
+	r = price(25 * 2**(index-1))
 	if index == 1: l = STATION_RENT
 	aligned_text = left_right_aligned_text(l, r, size=FONT_SIZE, w_percent=82)
 	aligned_text.y = f"{50 + 9*index}%"
