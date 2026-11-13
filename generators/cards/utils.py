@@ -4,17 +4,17 @@ from conf.ui import FONT_LIGHT
 HEIGHT = 88
 WIDTH = 56
 OFFSET = HEIGHT * 0.039
+INNER_OFFSET = OFFSET + WIDTH * 0.035
 
-def card_base(portrait=True, stroke=True, bg="white"):
+def card_base(portrait=True, stroke=True, bg=None):
 	w, h = WIDTH, HEIGHT
 	if (not portrait): w, h = HEIGHT, WIDTH
 	cb = canvas(w, h)
-	if bg != None:
-		r = rect(fill=bg, stroke=False) 
-		cb.elements.append(r)
-	if (stroke):
-		r = rect() 
-		r.stroke_width=0.36
+	cb.elements.append(rect(fill="#ffffff", stroke=False))
+	if stroke or bg != None:
+		r = rect()
+		if bg != None: r.fill = bg
+		if stroke: r.stroke_width=0.36
 		r.width = cb.width - 2*OFFSET
 		r.height = cb.height - 2*OFFSET
 		r.x, r.y = OFFSET, OFFSET

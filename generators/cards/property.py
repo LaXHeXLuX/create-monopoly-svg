@@ -1,10 +1,9 @@
-from generators.cards.utils import card_base, title, left_right_aligned_text, OFFSET as OUTER_OFFSET, WIDTH, HEIGHT
+from generators.cards.utils import card_base, title, left_right_aligned_text, INNER_OFFSET as OFFSET, WIDTH, HEIGHT
 from generators.utils import rect, canvas, price, text
 from conf.texts import PROPERTY_NAME, PROPERTY_RIGHT, RENT, RENT_FOR_ZONE, HOUSE_PRICE, HOTEL_PRICE, PIECE, PLUS_4_HOUSES
 from conf.ui import ZONE_COLORS
 from conf.game import PROPERTY_RENTS, HOUSE_PRICES, HOTEL_PRICES
 
-OFFSET = OUTER_OFFSET + WIDTH * 0.035
 HEADER_HEIGHT = HEIGHT * 0.19
 FOOTER_HEIGHT = HEIGHT * 0.18
 
