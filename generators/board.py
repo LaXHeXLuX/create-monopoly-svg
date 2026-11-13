@@ -1,4 +1,4 @@
-from conf.ui import BG_COLOR, CENTER, CORNER, TILE_WIDTH, BOARD
+from conf.ui import BG_COLOR, CENTER, CORNER, TILE_WIDTH, BOARD, PADDING
 from generators.utils import rect, canvas, position_element
 from generators.corner import corners
 from generators.center import center
@@ -37,3 +37,12 @@ def board():
 		boardRows
 	])
 	return board
+
+def board_with_padding():
+	size = BOARD + 2*PADDING
+	c = canvas(size, size)
+	c.elements.append(rect(fill=BG_COLOR))
+	b = board()
+	b.x, b.y = PADDING, PADDING
+	c.elements.append(b)
+	return c

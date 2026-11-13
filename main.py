@@ -12,7 +12,7 @@ def save_svg(canvas, filename, clean=True):
 	file.write(str(canvas))
 	file.close()
 
-from generators.board import board
+from generators.board import board_with_padding as board
 from generators.center import center
 from generators.corner import go, jail, free_parking, go_to_jail
 

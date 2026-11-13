@@ -4,6 +4,7 @@
 
 # dimensions
 BOARD = 490
+PADDING = 5
 CORNER = 65
 CENTER = BOARD - 2*CORNER
 TILE_WIDTH = CENTER / 9
@@ -37,7 +38,7 @@ IMAGE_SCALE = {
 	"CC": 0.8,
 	"T1": 0.2,
 	"T2": 0.2,
-	"U1": 0.8,
-	"U2": 0.7,
+	"U1": 0.7,
+	"U2": 0.6,
 	"kaart": 1.2
 }
