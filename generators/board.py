@@ -14,7 +14,7 @@ def row(index: int):
 	return row
 
 boardBase = canvas(BOARD, BOARD)
-boardBase.elements.append(rect(BG_COLOR, stroke=False))
+boardBase.elements.append(rect(BG_COLOR, stroke=0))
 
 boardRows = canvas(BOARD, BOARD)
 boardRows.elements.extend([
@@ -40,7 +40,7 @@ def board():
 
 def board_with_padding():
 	size = BOARD + 2*PADDING
-	c = canvas(size, size)
+	c = canvas(size, size, base=True)
 	c.elements.append(rect(fill=BG_COLOR))
 	b = board()
 	b.x, b.y = PADDING, PADDING

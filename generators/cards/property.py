@@ -1,11 +1,11 @@
-from generators.cards.utils import card_base, title, left_right_aligned_text, INNER_OFFSET as OFFSET, WIDTH, HEIGHT
-from generators.utils import rect, canvas, price, text
+from generators.cards.utils import rect, title, left_right_aligned_text, card_with_padding, INNER_OFFSETS as OFFSETS, INNER_HEIGHT as HEIGHT, INNER_WIDTH as WIDTH
+from generators.utils import canvas, price, text
 from conf.texts import PROPERTY_NAME, PROPERTY_RIGHT, RENT, RENT_FOR_ZONE, HOUSE_PRICE, HOTEL_PRICE, PIECE, PLUS_4_HOUSES
 from conf.ui import ZONE_COLORS
 from conf.game import PROPERTY_RENTS, HOUSE_PRICES, HOTEL_PRICES
 
-HEADER_HEIGHT = HEIGHT * 0.19
-FOOTER_HEIGHT = HEIGHT * 0.18
+HEADER_HEIGHT = 22
+FOOTER_HEIGHT = 20
 
 def house(fill=None, number=None):
 	scale = 4
@@ -23,11 +23,9 @@ def house(fill=None, number=None):
 	return c
 
 def header(color, name: str):
-	c = canvas(WIDTH - 2*OFFSET, HEADER_HEIGHT, overflow=True)
-	c.x, c.y = OFFSET, OFFSET
+	c = canvas("100%", f"{HEADER_HEIGHT}%", overflow=True)
 
 	r = rect(fill=color)
-	r.stroke_width = 0.36
 	right = title(PROPERTY_RIGHT, 23, size=0.6, weight=-1)
 	name = title(name, 65, size=1.07)
 
@@ -39,12 +37,11 @@ def house_hotel_price(zone):
 	return [f"1 {PIECE} {price(p)}" for p in prices]
 
 def footer(zone):
-	c = canvas(WIDTH - 2*OFFSET, FOOTER_HEIGHT, overflow=True)
-	c.x, c.y = OFFSET, HEIGHT - OFFSET - FOOTER_HEIGHT
+	c = canvas("100%", f"{FOOTER_HEIGHT}%", overflow=True)
+	c.y = HEIGHT - FOOTER_HEIGHT
 
 	stroke = rect()
-	stroke.height = "0.001%"
-	stroke.stroke_width = 0.35
+	stroke.height = "0.0001%"
 
 	house_hotel_prices = house_hotel_price(zone)
 	t1 = left_right_aligned_text(HOUSE_PRICE, house_hotel_prices[0])
@@ -60,13 +57,13 @@ def footer(zone):
 	return c
 
 def rents(zone: int, index: int):
-	c = canvas(WIDTH - 2*OFFSET, HEIGHT - 2*OFFSET - HEADER_HEIGHT - FOOTER_HEIGHT)
-	c.x, c.y = OFFSET, OFFSET + HEADER_HEIGHT
+	c = canvas("100%", f"{100 - HEADER_HEIGHT - FOOTER_HEIGHT}%")
+	c.y = f"{HEADER_HEIGHT}%"
 
 	rents = PROPERTY_RENTS[zone][index]
 
-	step = 13
 	start = 10
+	step = (100 - 2*start) / len(rents)
 	t1 = left_right_aligned_text(RENT, price(rents[0]))
 	t1.y = f"{start}%"
 	c.elements.append(t1)
@@ -95,11 +92,21 @@ def property(zone: int, index: int):
 	zone = int(zone)
 	index = int(index)
 
-	card = card_base()
-	card.elements.extend([
+	inner_card = canvas(
+		f"{100 - 2*OFFSETS[0]}%",
+		f"{100 - 2*OFFSETS[1]}%",
+		overflow=True
+	)
+	inner_card.x = f"{OFFSETS[0]}%"
+	inner_card.y = f"{OFFSETS[1]}%"
+	inner_card.elements.extend([
 		header(ZONE_COLORS[zone], PROPERTY_NAME[zone][index]),
 		rents(zone, index),
 		footer(zone)
 	])
-
-	return card
+	print(f"checking card header stroke size 1: {inner_card.elements[0].elements[0].stroke_width}")
+	
+	card = canvas(WIDTH, HEIGHT, overflow=True)
+	card.elements.append(inner_card)
+	print(f"checking card header stroke size 2: {card.elements[0].elements[0].elements[0].stroke_width}")
+	return card_with_padding(card)

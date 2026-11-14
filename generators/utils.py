@@ -15,17 +15,17 @@ def text(txt, size=5, weight=0, align=0, fill="#000000"):
 		font_size = size
 	)
 
-def rect(fill: str = "none", stroke: bool = True):
+def rect(fill: str = "none", stroke: float = 0.5):
 	r = svg.Rect(
 		width="100%", height="100%",
 		fill=fill
 	)
-	if (stroke):
+	if (stroke > 0):
 		r.stroke = "black"
-		r.stroke_width = 0.5
+		r.stroke_width = stroke
 	return r
 
-def canvas(w, h, overflow=False):
+def canvas(w, h, overflow=False, base=False):
 	canvas = svg.SVG(
 		width=w,
 		height=h,
@@ -33,6 +33,8 @@ def canvas(w, h, overflow=False):
 	)
 	if overflow:
 		canvas.overflow = "visible"
+	if not base:
+		canvas.xmlns = None
 	return canvas
 
 # utility methods

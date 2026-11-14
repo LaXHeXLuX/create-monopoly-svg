@@ -1,26 +1,30 @@
-from generators.utils import canvas, rect, text, position_element
+from generators.utils import canvas, rect as base_rect, text, position_element
 from conf.ui import FONT_LIGHT
 
+RATIO = 88/56
 HEIGHT = 88
 WIDTH = 56
-OFFSET = HEIGHT * 0.039
-INNER_OFFSET = OFFSET + WIDTH * 0.035
+OFFSET = WIDTH * 0.058
+INNER_HEIGHT = HEIGHT - 2*OFFSET
+INNER_WIDTH = WIDTH - 2*OFFSET
+inner_offset_width_percent = 4
+INNER_OFFSETS = [inner_offset_width_percent, inner_offset_width_percent / RATIO]
 
-def card_base(portrait=True, stroke=True, bg=None):
-	w, h = WIDTH, HEIGHT
-	if (not portrait): w, h = HEIGHT, WIDTH
-	cb = canvas(w, h)
-	cb.elements.append(rect(fill="#ffffff", stroke=False))
-	if stroke or bg != None:
-		r = rect()
-		if bg != None: r.fill = bg
-		if stroke: r.stroke_width=0.36
-		r.width = cb.width - 2*OFFSET
-		r.height = cb.height - 2*OFFSET
-		r.x, r.y = OFFSET, OFFSET
-		cb.elements.append(r)
-		
-	return cb
+def rect(fill="none", stroke = 0.36):
+	return base_rect(fill, stroke)
+
+def card_with_padding(card):
+	print(f"checking card header stroke size: {card.elements[0].elements[0].elements[0].stroke_width}")
+	card.width = WIDTH - 2*OFFSET
+	card.height = HEIGHT - 2*OFFSET
+	card.elements.append(rect())
+	cwp = canvas(WIDTH, HEIGHT, base=True)
+	card.x, card.y = OFFSET, OFFSET
+	cwp.elements.extend([
+		rect("#ffffff", stroke=0),
+		card
+	])
+	return cwp
 
 def title(txt: str, y_percent, size=1, weight=1, fill="#000000"):
 	txt = text(txt, size=WIDTH * 0.075 * size, weight=weight, fill=fill)
@@ -51,7 +55,7 @@ def content(txt: str, w_percent, h_percent, x_percent=50, y_percent=50, font_siz
 	style += f"; line-height: {scale*line_height}px"
 	style += f"; color: {fill}"
 
-	xmlns = "http://www.w3.org/1999/xhtml"
+	xmlns = "http://www.w3.org/2000/xhtml"
 	div = f"<div xmlns=\"{xmlns}\" style=\"{style}\">{txt}</div>"
 	fo.elements = [div]
 
