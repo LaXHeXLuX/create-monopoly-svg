@@ -11,7 +11,7 @@ LOGO_BG_WIDTH = 14.5
 LOGO_FONT_SIZE = WIDTH * 0.044
 
 def logo():
-	r = rect(fill="white", stroke=False)
+	r = rect(fill="white", stroke=0)
 	r.x, r.y = "-50%", "-50%"
 	txt = text(GAME, size=LOGO_FONT_SIZE, weight=-1)
 	txt.font_weight = "100"

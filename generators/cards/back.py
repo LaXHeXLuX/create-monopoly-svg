@@ -20,10 +20,7 @@ PADDING1 = 4.8
 PADDING2 = 6.1
 
 def bg(padding, grad_id):
-	bg = rect(
-		fill=f"url(#{grad_id})", 
-		stroke=False
-	)
+	bg = rect(fill=f"url(#{grad_id})", stroke=0)
 	bg.x, bg.y = padding, padding
 	bg.width = WIDTH - 2*padding
 	bg.height = HEIGHT - 2*padding
