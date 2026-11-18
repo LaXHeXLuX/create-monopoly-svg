@@ -5,8 +5,7 @@ from conf.game import PAWN_VALUE, PAWN_COEFFICIENT, PROPERTY_COSTS, STATION_COST
 
 from svg import LinearGradient, Stop, Defs
 
-def linear_gradient(s, e, id=None):
-	if id == None: id = f"{s} - {e}"
+def linear_gradient(s, e, id):
 	return LinearGradient(
 		id=id,
 		gradientTransform="rotate(90)",
