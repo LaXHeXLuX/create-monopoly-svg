@@ -15,8 +15,7 @@ def logo():
 	r.x, r.y = "-50%", "-50%"
 	txt = text(GAME, size=f"{logo_font_size_percent}%", weight=-1)
 	txt.font_weight = "100"
-	c = canvas(f"{logo_bg_width_percent}%", 5)
-	c.overflow = "visible"
+	c = canvas(f"{logo_bg_width_percent}%", 5, overflow=True)
 	c.elements.append(r)
 	c.elements.append(txt)
 	c.x = "50%"

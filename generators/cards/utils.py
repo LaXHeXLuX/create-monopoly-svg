@@ -41,7 +41,6 @@ def left_right_aligned_text(l_txt: str, r_txt: str, w_percent=100, y="50%"):
 	l = card_text(l_txt, align=-1)
 	r = card_text(r_txt, align=1)
 	r.x = "100%"
-	c = canvas(f"{w_percent}%", "50%")
-	c.overflow = "visible"
+	c = canvas(f"{w_percent}%", "50%", overflow=True)
 	c.elements.extend([l, r])
 	return position(c, x=f"{50 - w_percent/2}%", y=y)
