@@ -1,6 +1,6 @@
-from conf.ui import CORNER
+from conf.ui import CORNER, JAIL_COLOR
 from conf.game import GO_MONEY
-from generators.utils import text, rect, wrap, canvas, position_image
+from generators.utils import text, rect, price, wrap, canvas, position_image
 
 def c():
 	c = canvas(CORNER, CORNER)
@@ -15,8 +15,7 @@ def rotated_text(x, y, txt: str, rotation: int = -45, size: int = 7):
 def go():
 	go = c()
 	go.elements.extend([
-		rotated_text(15, 15, "MÖÖDUDES", size=5),
-		rotated_text(19, 19, f"SAAD {GO_MONEY} €", size=5),
+		rotated_text(-5.5, 40.5, f"MÖÖDUDES\nSAAD {price(GO_MONEY)}", size=5),
 		rotated_text(32, 32, "START", size=12),
 		position_image("GO", rotation=180, cx="70%", cy="70%")
 	])
@@ -28,7 +27,7 @@ def jail():
 	HALF1 = JAIL_SQUARE_WIDTH_PERCENT / 2
 	HALF2 = (100 - JAIL_SQUARE_WIDTH_PERCENT) / 2
 	jail = c()
-	r = rect("orange")
+	r = rect(JAIL_COLOR)
 	r.width, r.height = JAIL_SQUARE_WIDTH, JAIL_SQUARE_WIDTH
 	jail.elements.extend([
 		r,

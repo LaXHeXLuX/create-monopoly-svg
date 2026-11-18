@@ -1,10 +1,11 @@
-from generators.cards.utils import card_with_padding, title, left_right_aligned_text, INNER_WIDTH as WIDTH, INNER_HEIGHT as HEIGHT, INNER_OFFSETS as OFFSETS
+from generators.cards.utils import card_with_padding, title, left_right_aligned_text, INNER_OFFSETS as OFFSETS
 from generators.utils import canvas, position, position_image, price
 from conf.texts import STATION_NAME, STATION_RENT, FOR_STATIONS
+from conf.game import STATION_RENTS
 
 def rent_line(index):
 	l = f"{index} {FOR_STATIONS}"
-	r = price(25 * 2**(index-1))
+	r = price(STATION_RENTS[index-1])
 	if index == 1: l = STATION_RENT
 	return left_right_aligned_text(l, r, y=f"{20*index}%")
 

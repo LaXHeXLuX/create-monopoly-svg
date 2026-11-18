@@ -1,7 +1,7 @@
 from generators.cards.utils import rect, title, left_right_aligned_text, card_with_padding, INNER_OFFSETS as OFFSETS
 from generators.utils import canvas, price, text, position
 from conf.texts import PROPERTY_NAME, PROPERTY_RIGHT, RENT, RENT_FOR_ZONE, HOUSE_PRICE, HOTEL_PRICE, PIECE, PLUS_4_HOUSES
-from conf.ui import ZONE_COLORS
+from conf.ui import ZONE_COLORS, HOUSE_COLOR, HOTEL_COLOR
 from conf.game import PROPERTY_RENTS, HOUSE_PRICES, HOTEL_PRICES
 
 HEADER_HEIGHT = 22
@@ -63,10 +63,10 @@ def rents(zone: int, index: int):
 	t2 = left_right_aligned_text(RENT_FOR_ZONE, price(rents[0]*2), y=f"{start + step}%")
 	c.elements.append(t2)
 	for i in range(1, len(rents)):
-		color = "#1FB25A"
+		color = HOUSE_COLOR
 		number = i
 		if i == len(rents)-1:
-			color = "#ff5353"
+			color = HOTEL_COLOR
 			number = None
 		t = left_right_aligned_text(RENT, price(rents[i]), y=f"{start + (i+1)*step}%")
 

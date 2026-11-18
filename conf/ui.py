@@ -30,6 +30,9 @@ ZONE_COLORS = [
 MAP = "#ceecd3"
 CH_BG = "#ffa4a4"
 CC_BG = "#f9e48e"
+HOUSE_COLOR = "#1fb25a"
+HOTEL_COLOR = "#ff5353"
+JAIL_COLOR = "#ffa500"
 
 # image scales
 IMAGE_SCALE = {

@@ -53,6 +53,7 @@ def property_costs():
 PROPERTY_COSTS = property_costs()
 
 STATION_COST = 200
+STATION_RENTS = [25 * 2**i for i in range(ROW_COUNT)]
 UTILITY_COSTS = [150, 150]
 TAX_COSTS = [200, 100]
 
