@@ -77,5 +77,5 @@ FOR_STATIONS = "sadama korral"
 
 # card back
 PAWN_VALUE = "PANDI\nVÄÄRTUS"
-TO_UNPAWN_PAY = "PANDI VABASTAMISEKS\nMAKSA"
-IF_PAWNED = "Kui omand on panditud, pööra kaart näoga allapoole"
+TO_UNPAWN_PAY = "PANDI\nVABASTAMISEKS\nMAKSA"
+IF_PAWNED = "Kui omand on panditud, pööra\nkaart näoga allapoole"

@@ -18,11 +18,11 @@ from generators.corner import go, jail, free_parking, go_to_jail
 
 from generators.tiles.property import property
 from generators.tiles.station import station
-from generators.tiles.tax_utility import tax, util
+from generators.tiles.tax_utility import tax, utility
 from generators.tiles.chance_community import chance, community
 
 from generators.cards.chance_community import chance as chance_card, community as community_card, chance_back, community_back
-from generators.cards.utility import util as utility_card
+from generators.cards.utility import utility as utility_card
 from generators.cards.station import station as station_card
 from generators.cards.property import property as property_card
 from generators.cards.back import property_back, station_back, utility_back
@@ -39,7 +39,7 @@ arg_map = {
 	"p": property,
 	"s": station,
 	"t": tax,
-	"u": util,
+	"u": utility,
 	"ch": chance,
 	"cc": community,
 

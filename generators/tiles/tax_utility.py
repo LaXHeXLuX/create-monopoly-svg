@@ -9,8 +9,8 @@ def tax(index: int):
 	tax.elements.append(position_image(f"T{index}"))
 	return tax
 
-def util(index: int):
+def utility(index: int):
 	index = int(index)
-	util = tile_base(txt=U_NAME[index-1], cost=UTILITY_COSTS[index-1])
-	util.elements.append(position_image(f"U{index}"))
-	return util
+	utility = tile_base(txt=U_NAME[index-1], cost=UTILITY_COSTS[index-1])
+	utility.elements.append(position_image(f"U{index}"))
+	return utility

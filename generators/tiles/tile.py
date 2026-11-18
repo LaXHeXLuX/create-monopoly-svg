@@ -1,7 +1,7 @@
 from generators.tiles.chance_community import chance, community
 from generators.tiles.property import property
 from generators.tiles.station import station
-from generators.tiles.tax_utility import tax, util
+from generators.tiles.tax_utility import tax, utility
 
 def tile(id: str):
 	if (id == "CH"):
@@ -16,6 +16,6 @@ def tile(id: str):
 	if (id[0] == "T"):
 		return tax(i)
 	if (id[0] == "U"):
-		return util(i)
+		return utility(i)
 
 	raise Exception(f"invalid id {id}")

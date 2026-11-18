@@ -4,16 +4,38 @@ FONTS = [FONT_LIGHT, FONT, FONT_BOLD]
 
 # SVG objects
 import svg
-def text(txt, size=5, weight=0, align=0, fill="#000000"):
+def text(txt: str, size=5, weight=0, align=0, fill="#000000"):
+	txt = str(txt)
 	anchor = ["start", "middle", "end"]
-	return svg.Text(
-		text = txt,
+	lines = txt.split("\n")
+	text = svg.Text(
+		text=txt,
 		fill=fill,
-		text_anchor = anchor[align+1],
-		dominant_baseline = "middle",
-		font_family = FONTS[weight+1],
-		font_size = size
+		text_anchor=anchor[align+1],
+		dominant_baseline="middle",
+		font_family=FONTS[weight+1],
+		font_size=size,
 	)
+	if len(lines) == 1:
+		return text
+	text.text = None
+	text.elements = []
+	step = 1.32
+	j = 1
+	for i in range(len(lines)):
+		if (lines[i] == ""):
+			j += 1
+			continue
+		dy = f"{j*step}em"
+		if i == 0: 
+			dy = f"{-step/2 * (len(lines) - 1)}em"
+		text.elements.append(svg.TSpan(
+			text=lines[i],
+			x="50%",
+			dy=dy
+		))
+		j = 1
+	return text
 
 def rect(fill: str = "none", stroke: float = 0.5):
 	r = svg.Rect(

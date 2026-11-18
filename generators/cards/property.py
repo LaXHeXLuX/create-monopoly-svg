@@ -104,9 +104,5 @@ def property(zone: int, index: int):
 		rents(zone, index),
 		footer(zone)
 	])
-	print(f"checking card header stroke size 1: {inner_card.elements[0].elements[0].stroke_width}")
-	
-	card = canvas(WIDTH, HEIGHT, overflow=True)
-	card.elements.append(inner_card)
-	print(f"checking card header stroke size 2: {card.elements[0].elements[0].elements[0].stroke_width}")
-	return card_with_padding(card)
+
+	return card_with_padding([inner_card])

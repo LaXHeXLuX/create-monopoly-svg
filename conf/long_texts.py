@@ -1,4 +1,4 @@
-UTILITY_CARD_TEXT = "Ühe kommunaalettevõtte korral on rent 4-kordne täringusilmade arv.\n\nMõlema kommunaalettevõtte korral on rent 10-kordne täringusilmade arv."
+UTILITY_CARD_TEXT = "Ühe kommunaalettevõtte\nkorral on rent 4-kordne\ntäringusilmade arv.\n\nMõlema kommunaalettevõtte\nkorral on rent 10-kordne\ntäringusilmade arv."
 
 from generators.utils import price
 from conf.game import GO_MONEY
@@ -29,10 +29,10 @@ CH_TEXTS = [
 	go_to_text(4, 2),
 	go_to_text(2, 0),
 	go_to_text(7, 1),
-	f"Mine järgmisele kommunaalettevõtte ruudule.\n{if_not_bought_may_buy}\n{if_bought}, viska täringuid ja maksa omanikule 10-kordne täringusilmade arv.",
-	f"Mine järgmisele sadamaruudule.\n{if_not_bought_may_buy}\n{if_bought}, maksa omanikule kahekordne rent.",
-	f"Mine järgmisele sadamaruudule.\n{if_not_bought_may_buy}\n{if_bought}, maksa omanikule kahekordne rent.",
-	f"Mine esimesele sadamaruudule. {if_you_pass_go}",
+	f"Mine järgmisele kommunaalettevõtte ruudule.\n{if_not_bought_may_buy}\n{if_bought}, viska täringuid ja maksa\nomanikule 10-kordne täringusilmade arv.",
+	f"Mine järgmisele sadamaruudule.\n{if_not_bought_may_buy}\n{if_bought}, maksa omanikule\nkahekordne rent.",
+	f"Mine järgmisele sadamaruudule.\n{if_not_bought_may_buy}\n{if_bought}, maksa omanikule\nkahekordne rent.",
+	f"Mine esimesele sadamaruudule.\n{if_you_pass_go}",
 	f"Mine stardiruudule.\n({collect(GO_MONEY)})",
 	f"Mine kolm ruutu tagasi.",
 	go_to_jail,

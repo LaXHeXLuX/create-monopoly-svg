@@ -1,4 +1,4 @@
-from generators.cards.utils import card_base, title, content, WIDTH, HEIGHT
+from generators.cards.utils import title, card_text, card_base, WIDTH, HEIGHT
 from generators.utils import canvas, position_element, rect, text, price
 from conf.texts import PAWN_VALUE as PAWN_VALUE_TXT, TO_UNPAWN_PAY, IF_PAWNED, PROPERTY_NAME, STATION_NAME, U_NAME
 from conf.game import PAWN_VALUE, PAWN_COEFFICIENT, PROPERTY_COSTS, STATION_COST, UTILITY_COSTS
@@ -31,7 +31,7 @@ def back_base():
 	dark_red = "#ff2222"
 	up = linear_gradient(light_red, dark_red, "up")
 	down = linear_gradient(dark_red, light_red, "down")
-	base = card_base(stroke=False)
+	base = card_base()
 	base.elements.extend([
 		Defs(elements=[up, down]),
 		bg(PADDING1, "up"),
@@ -45,16 +45,10 @@ def pawn_value_text(value: int):
 def unpawn_cost_text(value: int):
 	return f"{TO_UNPAWN_PAY} {price(int((PAWN_VALUE + PAWN_COEFFICIENT) * value))}"
 
-def white_text(txt, y_percent, w_percent=75, size=1.3, line_height=6):
-	return content(
-		txt, 
-		w_percent=w_percent, 
-		h_percent=30, 
-		y_percent=y_percent, 
-		font_size=size, 
-		fill="#ffffff", 
-		line_height=line_height
-	)
+def white_text(txt, y_percent, scale=1):
+	txt = card_text(txt, size=4*scale, fill="#ffffff")
+	txt.y = f"{y_percent}%"
+	return txt
 
 def back(name: str, value: int):
 	value = int(value)
@@ -63,7 +57,7 @@ def back(name: str, value: int):
 		title(name, y_percent=16, fill="#ffffff"),
 		white_text(pawn_value_text(value), 36),
 		white_text(unpawn_cost_text(value), 56),
-		white_text(IF_PAWNED, 85, size=0.75, line_height=3.5)
+		white_text(IF_PAWNED, 85, scale=0.6)
 	])
 	return base
 

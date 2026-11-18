@@ -1,4 +1,4 @@
-from generators.cards.utils import card_base, title, content, WIDTH, OFFSET
+from generators.cards.utils import card_base, card_with_padding, card_text, title, WIDTH, HEIGHT, INNER_WIDTH as IH, INNER_HEIGHT as IW, OFFSET
 from generators.utils import text, rect, canvas, position_element, position_image
 from conf.texts import GAME, CH_NAME, CC_NAME
 from conf.ui import CH_BG, CC_BG
@@ -7,30 +7,34 @@ CONTENT_WIDTH_PERCENT = 71
 CONTENT_HEIGHT_PERCENT = 70
 CONTENT_LINE_HEIGHT = 4.6
 FO_SCALE = 10
-LOGO_BG_WIDTH = 14.5
-LOGO_FONT_SIZE = WIDTH * 0.044
+logo_font_size_percent = 16
+logo_bg_width_percent = logo_font_size_percent+2
 
 def logo():
-	r = rect(fill="white", stroke=0)
+	r = rect(fill="#ffffff", stroke=0)
 	r.x, r.y = "-50%", "-50%"
-	txt = text(GAME, size=LOGO_FONT_SIZE, weight=-1)
+	txt = text(GAME, size=f"{logo_font_size_percent}%", weight=-1)
 	txt.font_weight = "100"
-	c = canvas(LOGO_BG_WIDTH, 5)
+	c = canvas(f"{logo_bg_width_percent}%", 5)
 	c.overflow = "visible"
 	c.elements.append(r)
 	c.elements.append(txt)
+	c.x = "50%"
+	c.y = f"100%"
 	return c
 
 def base():
-	cb = card_base(portrait=False)
-	l = position_element(logo(), cy=f"{cb.height - OFFSET}")
-	cb.elements.append(l)
-	return cb
+	return card_with_padding([logo()], portrait=False)
 
 def card(txt: str, CH=True):
 	card = base()
-	card.elements.append(title(CH_NAME if CH else CC_NAME, y_percent=19))
-	card.elements.append(content(txt, 75, 70, y_percent=55))
+	txt = card_text(txt)
+	txt.y = "55%"
+	txt.x = "50%"
+	card.elements.extend([
+		title(CH_NAME if CH else CC_NAME, y_percent=19),
+		txt
+	])
 	return card
 
 def chance(txt: str):
@@ -40,8 +44,14 @@ def community(txt: str):
 	return card(txt, CH=False)
 
 def back(CH=True):
-	cb = card_base(portrait=False, bg=CH_BG if CH else CC_BG)
-	cb.elements.append(position_image("CH" if CH else "CC", scale=0.75))
+	cb = card_base(portrait=False)
+	bg = rect(CH_BG if CH else CC_BG)
+	bg.width, bg.height = IW, IH
+	bg.x, bg.y = OFFSET, OFFSET
+	cb.elements.extend([
+		bg,
+		position_image("CH" if CH else "CC", scale=0.75)
+	])
 	return cb
 
 def chance_back():
