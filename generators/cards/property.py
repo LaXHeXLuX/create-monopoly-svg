@@ -1,4 +1,4 @@
-from generators.cards.utils import rect, title, left_right_aligned_text, card_with_padding, INNER_OFFSETS as OFFSETS, INNER_HEIGHT as HEIGHT, INNER_WIDTH as WIDTH
+from generators.cards.utils import rect, title, left_right_aligned_text, card_with_padding, INNER_OFFSETS as OFFSETS
 from generators.utils import canvas, price, text
 from conf.texts import PROPERTY_NAME, PROPERTY_RIGHT, RENT, RENT_FOR_ZONE, HOUSE_PRICE, HOTEL_PRICE, PIECE, PLUS_4_HOUSES
 from conf.ui import ZONE_COLORS
@@ -38,7 +38,7 @@ def house_hotel_price(zone):
 
 def footer(zone):
 	c = canvas("100%", f"{FOOTER_HEIGHT}%", overflow=True)
-	c.y = HEIGHT - FOOTER_HEIGHT
+	c.y = f"{100 - FOOTER_HEIGHT}%"
 
 	stroke = rect()
 	stroke.height = "0.0001%"
