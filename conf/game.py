@@ -6,10 +6,10 @@ ROW_SIZE = 9
 def layout():
 	layout = [None] * ROW_SIZE * ROW_COUNT
 
-	layout[10] = "U1"
-	layout[25] = "U2"
-	layout[3] = "T1"
-	layout[34] = "T2"
+	layout[10] = "U0"
+	layout[25] = "U1"
+	layout[3] = "T0"
+	layout[34] = "T1"
 	
 	for i in range(ROW_COUNT):
 		layout[ROW_SIZE*i + ROW_SIZE//2] = f"S{i}"
