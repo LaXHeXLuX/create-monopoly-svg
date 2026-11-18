@@ -89,9 +89,6 @@ def rents(zone: int, index: int):
 	return c
 
 def property(zone: int, index: int):
-	zone = int(zone)
-	index = int(index)
-
 	inner_card = canvas(
 		f"{100 - 2*OFFSETS[0]}%",
 		f"{100 - 2*OFFSETS[1]}%",

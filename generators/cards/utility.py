@@ -4,7 +4,6 @@ from conf.texts import U_NAME
 from conf.long_texts import UTILITY_CARD_TEXT
 
 def utility(index: int):
-	index = int(index)
 	txt = card_text(UTILITY_CARD_TEXT)
 	txt.y = "72%"
 	return card_with_padding([

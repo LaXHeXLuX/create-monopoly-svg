@@ -50,7 +50,6 @@ def white_text(txt, y_percent, scale=1):
 	return txt
 
 def back(name: str, value: int):
-	value = int(value)
 	base = back_base()
 	base.elements.extend([
 		title(name, y_percent=16, fill="#ffffff"),
@@ -61,14 +60,10 @@ def back(name: str, value: int):
 	return base
 
 def property_back(zone: int, index: int):
-	zone = int(zone)
-	index = int(index)
 	return back(PROPERTY_NAME[zone][index], PROPERTY_COSTS[zone][index])
 
 def station_back(index: int):
-	index = int(index)
 	return back(STATION_NAME[index], STATION_COST)
 
 def utility_back(index: int):
-	index = int(index)
 	return back(U_NAME[index], UTILITY_COSTS[index])

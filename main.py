@@ -111,7 +111,7 @@ def run():
 		return
 
 	
-	params = sys.argv[2:]
+	params = [int(param) for param in sys.argv[2:]]
 	print(f"op: {op}, params: {params}")
 	main(arg_map[op](*params))
 

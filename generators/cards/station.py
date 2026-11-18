@@ -21,7 +21,7 @@ def rents():
 
 def station(index: int):
 	return card_with_padding([
-		title(STATION_NAME[int(index)], 45),
+		title(STATION_NAME[index], 45),
 		position_image("S", scale=0.65, cy="24%"),
 		rents()
 	])
