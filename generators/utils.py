@@ -60,6 +60,10 @@ def canvas(w, h, overflow=False, base=False):
 	return canvas
 
 # utility methods
+def position(el: svg, x="50%", y="50%"):
+	el.x, el.y = x, y
+	return el
+
 def wrap(element: svg, x, y):
 	return svg.SVG(
 		x=x, y=y, overflow="visible",

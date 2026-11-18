@@ -1,5 +1,5 @@
 from generators.cards.utils import title, card_text, card_base, WIDTH, HEIGHT
-from generators.utils import canvas, position_element, rect, text, price
+from generators.utils import rect, position, price
 from conf.texts import PAWN_VALUE as PAWN_VALUE_TXT, TO_UNPAWN_PAY, IF_PAWNED, PROPERTY_NAME, STATION_NAME, U_NAME
 from conf.game import PAWN_VALUE, PAWN_COEFFICIENT, PROPERTY_COSTS, STATION_COST, UTILITY_COSTS
 
@@ -45,14 +45,12 @@ def unpawn_cost_text(value: int):
 	return f"{TO_UNPAWN_PAY} {price(int((PAWN_VALUE + PAWN_COEFFICIENT) * value))}"
 
 def white_text(txt, y_percent, scale=1):
-	txt = card_text(txt, size=4*scale, fill="#ffffff")
-	txt.y = f"{y_percent}%"
-	return txt
+	return position(card_text(txt, size=4*scale, fill="#ffffff"), y=f"{y_percent}%")
 
 def back(name: str, value: int):
 	base = back_base()
 	base.elements.extend([
-		title(name, y_percent=16, fill="#ffffff"),
+		title(name, y="16%", fill="#ffffff"),
 		white_text(pawn_value_text(value), 36),
 		white_text(unpawn_cost_text(value), 56),
 		white_text(IF_PAWNED, 85, scale=0.6)

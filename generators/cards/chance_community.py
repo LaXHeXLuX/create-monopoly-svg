@@ -1,5 +1,5 @@
-from generators.cards.utils import card_base, card_with_padding, card_text, title, WIDTH, HEIGHT, INNER_WIDTH as IH, INNER_HEIGHT as IW, OFFSET
-from generators.utils import text, rect, canvas, position_element, position_image
+from generators.cards.utils import card_base, card_with_padding, card_text, title, INNER_WIDTH as IH, INNER_HEIGHT as IW, OFFSET
+from generators.utils import text, rect, position, canvas, position_image
 from conf.texts import GAME, CH_NAME, CC_NAME
 from conf.ui import CH_BG, CC_BG
 
@@ -28,12 +28,9 @@ def base():
 
 def card(txt: str, CH=True):
 	card = base()
-	txt = card_text(txt)
-	txt.y = "55%"
-	txt.x = "50%"
 	card.elements.extend([
-		title(CH_NAME if CH else CC_NAME, y_percent=19),
-		txt
+		title(CH_NAME if CH else CC_NAME, y="19%"),
+		position(card_text(txt), y="55%")
 	])
 	return card
 

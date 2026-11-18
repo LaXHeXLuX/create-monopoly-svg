@@ -1,5 +1,4 @@
-from generators.utils import canvas, rect as base_rect, text, position_element
-from conf.ui import FONT_LIGHT
+from generators.utils import canvas, rect as base_rect, text, position
 
 RATIO = 88/56
 HEIGHT = 88
@@ -31,19 +30,18 @@ def card_with_padding(elements, portrait=True):
 	cwp.elements.append(card)
 	return cwp
 
-def title(txt: str, y_percent, size=1, weight=1, fill="#000000"):
+def title(txt: str, y, size=1, weight=1, fill="#000000"):
 	txt = text(txt, size=WIDTH * 0.075 * size, weight=weight, fill=fill)
-	return position_element(txt, cy=f"{y_percent}%")
+	return position(txt, y=y)
 
 def card_text(txt: str, size=3.2, align=0, fill="#000000"):
 	return text(txt, size=size, weight=-1, align=align, fill=fill)
 
-def left_right_aligned_text(l_txt: str, r_txt: str, w_percent=100):
+def left_right_aligned_text(l_txt: str, r_txt: str, w_percent=100, y="50%"):
 	l = card_text(l_txt, align=-1)
 	r = card_text(r_txt, align=1)
 	r.x = "100%"
 	c = canvas(f"{w_percent}%", "50%")
 	c.overflow = "visible"
 	c.elements.extend([l, r])
-	c.x = f"{50 - w_percent/2}%"
-	return c
+	return position(c, x=f"{50 - w_percent/2}%", y=y)
