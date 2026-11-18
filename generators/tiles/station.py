@@ -4,6 +4,4 @@ from conf.texts import STATION_NAME
 from conf.game import STATION_COST
 
 def station(index: int):
-	station = tile_base(txt=STATION_NAME[index], cost=STATION_COST)
-	station.elements.append(position_image("S"))
-	return station
+	return tile_base(txt=STATION_NAME[index], image_tag="S", cost=STATION_COST)
