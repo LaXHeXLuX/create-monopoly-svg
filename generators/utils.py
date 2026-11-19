@@ -84,7 +84,7 @@ def position_element(el: svg, rotation=0, scale=1, cx="50%", cy="50%"):
 	if scale != 1:
 		transforms.append(f"scale({scale})")
 
-	el.transform = " ".join(transforms)
+	if len(transforms) > 0: el.transform = " ".join(transforms)
 
 	return wrap(el, cx, cy)
 

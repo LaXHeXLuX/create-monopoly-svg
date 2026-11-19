@@ -1,8 +1,8 @@
 from generators.utils import canvas, rect as base_rect, text, position
 
-RATIO = 88/56
 HEIGHT = 88
 WIDTH = 56
+RATIO = HEIGHT/WIDTH
 OFFSET = WIDTH * 0.058
 INNER_HEIGHT = HEIGHT - 2*OFFSET
 INNER_WIDTH = WIDTH - 2*OFFSET

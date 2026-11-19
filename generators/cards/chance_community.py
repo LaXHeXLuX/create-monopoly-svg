@@ -3,10 +3,6 @@ from generators.utils import text, rect, position, canvas, position_image
 from conf.texts import GAME, CH_NAME, CC_NAME
 from conf.ui import CH_BG, CC_BG
 
-CONTENT_WIDTH_PERCENT = 71
-CONTENT_HEIGHT_PERCENT = 70
-CONTENT_LINE_HEIGHT = 4.6
-FO_SCALE = 10
 logo_font_size_percent = 16
 logo_bg_width_percent = logo_font_size_percent+2
 
