@@ -1,6 +1,6 @@
 from conf.ui import BG_COLOR, CENTER, CORNER, TILE_WIDTH, BOARD, PADDING
 from generators.utils import rect, canvas, position_element
-from generators.corner import corners
+from generators.corner import go, jail, free_parking, go_to_jail
 from generators.center import center
 from conf.game import LAYOUT, ROW_SIZE
 from generators.tiles.tile import tile
@@ -13,28 +13,32 @@ def row(index: int):
 		row.elements.append(el)
 	return row
 
-boardBase = canvas(BOARD, BOARD)
-boardBase.elements.append(rect(BG_COLOR, stroke=0))
+def board_base():
+	board_base = canvas(BOARD, BOARD)
+	board_base.elements.append(rect(BG_COLOR, stroke=0))
+	return board_base
 
-boardRows = canvas(BOARD, BOARD)
-boardRows.elements.extend([
-	position_element(corners[0], cx=BOARD-CORNER, cy=BOARD-CORNER, rotation=0),
-	position_element(row(0), cx=CORNER, cy=BOARD-CORNER, rotation=0),
-	position_element(corners[1], cx=CORNER, cy=BOARD-CORNER, rotation=90),
-	position_element(row(1), cx=CORNER, cy=CORNER, rotation=90),
-	position_element(corners[2], cx=CORNER, cy=CORNER, rotation=180),
-	position_element(row(2), cx=BOARD-CORNER, cy=CORNER, rotation=180),
-	position_element(corners[3], cx=BOARD-CORNER, cy=CORNER, rotation=270),
-	position_element(row(3), cx=BOARD-CORNER, cy=BOARD-CORNER, rotation=270)
-])
+def board_rows(): 
+	board_rows = canvas(BOARD, BOARD)
+	board_rows.elements.extend([
+		position_element(go(), cx=BOARD-CORNER, cy=BOARD-CORNER, rotation=0),
+		position_element(row(0), cx=CORNER, cy=BOARD-CORNER, rotation=0),
+		position_element(jail(), cx=CORNER, cy=BOARD-CORNER, rotation=90),
+		position_element(row(1), cx=CORNER, cy=CORNER, rotation=90),
+		position_element(free_parking(), cx=CORNER, cy=CORNER, rotation=180),
+		position_element(row(2), cx=BOARD-CORNER, cy=CORNER, rotation=180),
+		position_element(go_to_jail(), cx=BOARD-CORNER, cy=CORNER, rotation=270),
+		position_element(row(3), cx=BOARD-CORNER, cy=BOARD-CORNER, rotation=270)
+	])
+	return board_rows
 
 def board():
 	board = canvas(BOARD, BOARD)
 	board.viewBox = f"0 0 {BOARD} {BOARD}"
 	board.elements.extend([
-		boardBase, 
+		board_base(), 
 		position_element(center(), cx=CORNER, cy=CORNER),
-		boardRows
+		board_rows()
 	])
 	return board
 

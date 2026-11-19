@@ -57,10 +57,3 @@ def go_to_jail():
 		position_image("GTJ", rotation=-45, cy="48%", cx="48%")
 	])
 	return go_to_jail
-
-corners = [
-	go(),
-	jail(),
-	free_parking(),
-	go_to_jail()
-]
