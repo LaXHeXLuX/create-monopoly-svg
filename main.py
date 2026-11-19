@@ -1,16 +1,14 @@
+from pathlib import Path
+from generators.clean_svg import embed_svg
+
 def main(canvas):
-	save_svg(canvas, "pytest.svg")
+	save_svg(canvas, "output.svg")
 
 def save_svg(canvas, filename, clean=True):
-	if (clean):
-		from generators.clean_svg import embed_svg
-		canvas = embed_svg(canvas)
-	from pathlib import Path
+	if (clean): canvas = embed_svg(canvas)
 	path = Path(filename)
 	path.parent.mkdir(parents=True, exist_ok=True)
-	file = open(filename, "w+", encoding="UTF8")
-	file.write(str(canvas))
-	file.close()
+	path.write_text(str(canvas), encoding="UTF8")
 
 from generators.board import board_with_padding as board
 from generators.center import center
@@ -55,6 +53,9 @@ arg_map = {
 	"pb": property_back
 }
 
+from conf.long_texts import CC_TEXTS, CH_TEXTS
+from conf.game import PROPERTY_COSTS
+
 def do_all():
 	out = "output/"
 
@@ -62,34 +63,33 @@ def do_all():
 	save_svg(board(), f"{out}board.svg")
 
 	# cards
+	cards_out = f"{out}/cards/"
 	# chance
-	out = f"output/cards/chance/"
-	from conf.long_texts import CC_TEXTS, CH_TEXTS
+	out = f"{cards_out}chance/"
 	save_svg(chance_back(), f"{out}CH_B.svg")
 	for i in range(len(CH_TEXTS)):
 		save_svg(chance_card(CH_TEXTS[i]), f"{out}CH{i}.svg")
 
 	# community
-	out = f"output/cards/community/"
+	out = f"{cards_out}community/"
 	save_svg(community_back(), f"{out}CC_B.svg")
 	for i in range(len(CC_TEXTS)):
 		save_svg(community_card(CC_TEXTS[i]), f"{out}CC{i}.svg")
 
 	# utilities
-	out = f"output/cards/utility/"
+	out = f"{cards_out}utility/"
 	for i in range(2):
 		save_svg(utility_card(i), f"{out}U{i}.svg")
 		save_svg(utility_back(i), f"{out}U{i}B.svg")
 
 	# stations
-	out = f"output/cards/station/"
+	out = f"{cards_out}station/"
 	for i in range(4):
 		save_svg(station_card(i), f"{out}S{i}.svg")
 		save_svg(station_back(i), f"{out}S{i}B.svg")
 
 	# properties
-	out = f"output/cards/property/"
-	from conf.game import PROPERTY_COSTS
+	out = f"{cards_out}property/"
 	for z in range(len(PROPERTY_COSTS)):
 		for i in range(len(PROPERTY_COSTS[z])):
 			save_svg(property_card(z, i), f"{out}P{z}{i}.svg")
@@ -106,8 +106,8 @@ def run():
 		do_all()
 		return
 	
-	if sys.argv[1] not in arg_map:
-		print("Need argument in " + f"{{{", ".join(arg_map.keys())}}}")
+	if op not in arg_map:
+		print(f"Need argument in {", ".join(arg_map.keys())}")
 		return
 
 	
