@@ -8,8 +8,6 @@ def card_place(txt: str):
 	dotted_box.stroke_width = "1.5"
 	dotted_box.stroke_dasharray = "2"
 
-	t = text(txt, size=8)
-
 	card_place = canvas(HEIGHT, WIDTH)
 	card_place.elements.extend([
 		dotted_box, 

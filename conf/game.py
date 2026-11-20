@@ -20,19 +20,19 @@ def layout():
 	for i in [6, 19, 32]:
 		layout[i] = "CH"
 
-	layout[0] = "P11"
-	layout[2] = "P12"
+	layout[0] = "P00"
+	layout[2] = "P01"
 
-	pi = 2
-	ii = 1
+	pi = 1
+	ii = 0
 	for i in range(len(layout)):
 		if (layout[i] != None): continue
 
 		layout[i] = f"P{pi}{ii}"
 
 		ii += 1
-		if (ii > 3):
-			ii = 1
+		if (ii > 2):
+			ii = 0
 			pi += 1
 
 	return layout
