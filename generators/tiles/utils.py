@@ -1,7 +1,7 @@
 from conf.ui import TILE_WIDTH, CORNER
 from generators.utils import canvas, rect, text, position, position_image, price as price_str
 
-def price(value: int = 100):
+def price(value):
 	return position(text(price_str(value)), y="90%")
 
 def tile_base(txt=None, image_tag=None, image_y="50%", cost=None):

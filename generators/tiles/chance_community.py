@@ -1,5 +1,4 @@
 from generators.tiles.utils import tile_base
-from generators.utils import position_image
 from conf.texts import CH_NAME, CC_NAME
 
 def c(txt, image_tag):

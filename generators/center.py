@@ -1,6 +1,6 @@
 from conf.ui import CENTER_COLOR, CENTER
 from conf.texts import CC_NAME, CH_NAME
-from generators.utils import text, rect, canvas, position_element, position_image
+from generators.utils import text, rect, canvas, position, position_element, position_image
 from generators.cards.utils import WIDTH, HEIGHT
 
 def card_place(txt: str):
@@ -9,10 +9,12 @@ def card_place(txt: str):
 	dotted_box.stroke_dasharray = "2"
 
 	t = text(txt, size=8)
-	t.x, t.y = "50%", "50%"
 
 	card_place = canvas(HEIGHT, WIDTH)
-	card_place.elements.extend([dotted_box, t])
+	card_place.elements.extend([
+		dotted_box, 
+		position(text(txt, size=8))
+	])
 	return card_place
 
 def center():

@@ -14,9 +14,7 @@ def logo():
 	c = canvas(f"{logo_bg_width_percent}%", 5, overflow=True)
 	c.elements.append(r)
 	c.elements.append(txt)
-	c.x = "50%"
-	c.y = f"100%"
-	return c
+	return position(c, y="100%")
 
 def base():
 	return card_with_padding([logo()], portrait=False)
