@@ -1,5 +1,6 @@
 from conf.ui import TILE_WIDTH, CORNER
-from generators.utils import canvas, rect, text, position, position_image, price as price_str
+from conf.texts import price as price_str
+from generators.utils import canvas, rect, text, position, position_image
 
 def price(value):
 	return position(text(price_str(value)), y="90%")

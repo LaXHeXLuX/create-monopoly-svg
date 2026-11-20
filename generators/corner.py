@@ -1,6 +1,7 @@
 from conf.ui import CORNER, JAIL_COLOR
 from conf.game import GO_MONEY
-from generators.utils import text, rect, price, wrap, canvas, position_image
+from conf.texts import price
+from generators.utils import text, rect, wrap, canvas, position_image
 
 def c():
 	c = canvas(CORNER, CORNER)

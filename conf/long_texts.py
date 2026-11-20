@@ -1,8 +1,7 @@
 UTILITY_CARD_TEXT = "Ühe kommunaalettevõtte\nkorral on rent 4-kordne\ntäringusilmade arv.\n\nMõlema kommunaalettevõtte\nkorral on rent 10-kordne\ntäringusilmade arv."
 
-from generators.utils import price
 from conf.game import GO_MONEY
-from conf.texts import PROPERTY_NAME
+from conf.texts import PROPERTY_NAME, price
 
 # chance and community chest texts
 if_you_pass_go = f"Kui läbid stardiruudu, saad {price(GO_MONEY)}."

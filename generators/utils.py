@@ -95,6 +95,3 @@ def position_image(tag: str, rotation=0, scale=1, cx="50%", cy="50%"):
 		scale=IMAGE_SCALE[tag]*scale, 
 		cx=cx, cy=cy
 	)
-
-def price(value: int):
-	return f"{value} {CURRENCY}"

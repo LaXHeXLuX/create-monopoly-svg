@@ -1,6 +1,6 @@
 from generators.cards.utils import title, card_text, card_base, WIDTH, HEIGHT
-from generators.utils import rect, position, price
-from conf.texts import PAWN_VALUE as PAWN_VALUE_TXT, TO_UNPAWN_PAY, IF_PAWNED, PROPERTY_NAME, STATION_NAME, U_NAME
+from generators.utils import rect, position
+from conf.texts import price, PAWN_VALUE as PAWN_VALUE_TXT, TO_UNPAWN_PAY, IF_PAWNED, PROPERTY_NAME, STATION_NAME, U_NAME
 from conf.game import PAWN_VALUE, PAWN_COEFFICIENT, PROPERTY_COSTS, STATION_COST, UTILITY_COSTS
 
 from svg import LinearGradient, Stop, Defs

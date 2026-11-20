@@ -2,6 +2,8 @@
 
 # currency
 CURRENCY = "€"
+def price(value: int):
+	return f"{value} {CURRENCY}"
 
 # place names
 STATION_NAME = [

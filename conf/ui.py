@@ -2,12 +2,14 @@
 # Everything is initially set to the standard Monopoly values
 # The exception is IMAGE_SCALE, as the images aren't the same as in a standard Monopoly game
 
+from conf.game import ROW_SIZE
+
 # dimensions
 BOARD = 490
 PADDING = 5
 CORNER = 65
 CENTER = BOARD - 2*CORNER
-TILE_WIDTH = CENTER / 9
+TILE_WIDTH = CENTER / ROW_SIZE
 
 # fonts
 FONT = "ITCKabelStd"

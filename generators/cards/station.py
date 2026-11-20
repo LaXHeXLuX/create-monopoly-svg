@@ -1,6 +1,6 @@
 from generators.cards.utils import card_with_padding, title, left_right_aligned_text, INNER_OFFSETS as OFFSETS
-from generators.utils import canvas, position, position_image, price
-from conf.texts import STATION_NAME, STATION_RENT, FOR_STATIONS
+from generators.utils import canvas, position, position_image
+from conf.texts import price, STATION_NAME, STATION_RENT, FOR_STATIONS
 from conf.game import STATION_RENTS
 
 def rent_line(index):
