@@ -113,8 +113,9 @@ def run():
 
 	
 	params = sys.argv[2:]
-	try: params = [int(param) for param in params]
-	except: pass
+	for i in range(len(params)):
+		try: params[i] = int(params[i])
+		except ValueError: pass
 	print(f"op: {op}, params: {params}")
 	main(arg_map[op](*params))
 
