@@ -1,4 +1,4 @@
-from generators.cards.utils import card_base, card_with_padding, card_text, title, INNER_WIDTH as IH, INNER_HEIGHT as IW, OFFSET
+from generators.cards.utils import card_base, card_with_padding, card_text, title, INNER_WIDTH, INNER_HEIGHT, OFFSET
 from generators.utils import text, rect, position, canvas, position_image
 from conf.texts import GAME, CH_NAME, CC_NAME
 from conf.ui import CH_BG, CC_BG
@@ -36,7 +36,7 @@ def community(txt: str):
 def back(CH=True):
 	cb = card_base(portrait=False)
 	bg = rect(CH_BG if CH else CC_BG)
-	bg.width, bg.height = IW, IH
+	bg.width, bg.height = INNER_HEIGHT, INNER_WIDTH
 	bg.x, bg.y = OFFSET, OFFSET
 	cb.elements.extend([
 		bg,
