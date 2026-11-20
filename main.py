@@ -55,6 +55,7 @@ arg_map = {
 
 from conf.long_texts import CC_TEXTS, CH_TEXTS
 from conf.game import PROPERTY_COSTS
+from conf.texts import U_NAME, STATION_NAME
 
 def do_all():
 	out = "output/"
@@ -78,13 +79,13 @@ def do_all():
 
 	# utilities
 	out = f"{cards_out}utility/"
-	for i in range(2):
+	for i in range(len(U_NAME)):
 		save_svg(utility_card(i), f"{out}U{i}.svg")
 		save_svg(utility_back(i), f"{out}U{i}B.svg")
 
 	# stations
 	out = f"{cards_out}station/"
-	for i in range(4):
+	for i in range(len(STATION_NAME)):
 		save_svg(station_card(i), f"{out}S{i}.svg")
 		save_svg(station_back(i), f"{out}S{i}B.svg")
 
@@ -111,7 +112,9 @@ def run():
 		return
 
 	
-	params = [int(param) for param in sys.argv[2:]]
+	params = sys.argv[2:]
+	try: params = [int(param) for param in params]
+	except: pass
 	print(f"op: {op}, params: {params}")
 	main(arg_map[op](*params))
 

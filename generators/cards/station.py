@@ -11,7 +11,7 @@ def rent_line(index):
 
 def rents():
 	rents = canvas(f"{100 - 2*OFFSETS[0]}%", "50%")
-	for i in range(1, 5):
+	for i in range(1, len(STATION_RENTS) + 1):
 		rl = rent_line(i)
 		rents.elements.append(rl)
 	return position(rents, x=f"{OFFSETS[0]}%")
