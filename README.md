@@ -20,7 +20,7 @@ Configuration is divided into four files:
 All texts are currently customized for an Estonian Hiiumaa-oriented game.
 
 ## Adding your images
-I've included decals of the community chest and chance icons, the tax tile icons, and the GO square arrow. As a placeholder, the chance icon also replaces everything else, so you can test the program before adding your images.
+I've included decals of the community chest and chance icons, the tax tile icons, and the GO square arrow. As a placeholder, the chance icon replaces everything that's missing, so you can test the program before adding your images.
 
 Add your images to the decals folder and name them as such:
 - Community chest: "CH.svg"
@@ -33,6 +33,8 @@ Add your images to the decals folder and name them as such:
 - Second tax: "T1.svg"
 - First utility: "U0.svg"
 - Second utility: "U1.svg"
+
+There is also a "center" tag, for an optional big image in the center of the board. Its IMAGE_SIZE is initially at zero, so you don't have to set it and nothing will appear. 
 
 If any of your decals isn't an svg file, you must add their whole filename (with the corresponding tag) to the *special* dict in the *image_file* method. For example, if your station image is a jpg named `kings cross.jpg`, then add `"S": "kings cross.jpg"` to the *special* dict.
 
