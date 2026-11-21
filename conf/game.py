@@ -1,6 +1,7 @@
 # Here are constants that define the functional elements of the game, such as house prices, board layout, etc. 
 # Everything is initially set to the standard Monopoly rules
 
+# ROW_COUNT is fixed, changing ROW_SIZE requires also changing the layout() method
 ROW_COUNT = 4
 ROW_SIZE = 9
 def layout():

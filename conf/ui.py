@@ -39,7 +39,6 @@ ZONE_COLORS = [
 	"#1fb25a",
 	"#0072bb"
 ]
-MAP = "#ceecd3"
 CH_BG = "#ffa4a4"
 CC_BG = "#f9e48e"
 HOUSE_COLOR = "#1fb25a"

@@ -64,7 +64,7 @@ def do_all():
 	save_svg(board(), f"{out}board.svg")
 
 	# cards
-	cards_out = f"{out}/cards/"
+	cards_out = f"{out}cards/"
 	# chance
 	out = f"{cards_out}chance/"
 	save_svg(chance_back(), f"{out}CH_B.svg")
