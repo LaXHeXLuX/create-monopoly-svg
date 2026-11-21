@@ -14,7 +14,7 @@ def font_style(svg: str):
 	faces = [font_face(w) for w, name in FONTS.items() if f'font-family="{name}"' in svg]
 	return f"<style>{''.join(faces)}</style>" if faces else ""
 
-def embed_svg(svg, base_dir: Path = ROOT):
+def embed_svg(svg, base_dir: Path = ROOT, embed_font: bool = False):
 	base_dir = Path(base_dir)
 	svg = str(svg)
 
@@ -27,9 +27,11 @@ def embed_svg(svg, base_dir: Path = ROOT):
 		svg,
 	)
 
-	style = font_style(svg)
-	if style:
-		svg = re.sub(r"<svg\b[^>]*>", lambda m: m[0] + style, svg, count=1)
+	if embed_font:
+		style = font_style(svg)
+		if style:
+			svg = re.sub(r"<svg\b[^>]*>", lambda m: m[0] + style, svg, count=1)
+		
 	return svg
 
 def embed(path: Path):
