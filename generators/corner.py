@@ -18,7 +18,7 @@ def go():
 	go.elements.extend([
 		rotated_text(-5.5, 40.5, f"{IF_PASS_GET_MONEY} {price(GO_MONEY)}", size=5),
 		rotated_text(32, 32, GO, size=12),
-		position_image("GO", rotation=180, cx="70%", cy="70%")
+		position_image("GO", rotation=180, cx="66%", cy="66%")
 	])
 	return go
 
