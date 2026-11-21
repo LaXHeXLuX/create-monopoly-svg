@@ -14,20 +14,20 @@ def font_style(svg: str):
 	faces = [font_face(w) for w, name in FONTS.items() if f'font-family="{name}"' in svg]
 	return f"<style>{''.join(faces)}</style>" if faces else ""
 
+
+MIME = {
+	".jpg": "image/jpeg",
+	".jpeg": "image/jpeg",
+	".png": "image/png",
+	".gif": "image/gif",
+	".webp": "image/webp",
+}
+
 def embed_svg(svg, base_dir: Path = ROOT, embed_font: bool = False):
 	base_dir = Path(base_dir)
 	svg = str(svg)
 
 	def to_data_uri(m):
-		MIME = {
-			".svg": "image/svg+xml",
-			".jpg": "image/jpeg",
-			".jpeg": "image/jpeg",
-			".png": "image/png",
-			".gif": "image/gif",
-			".webp": "image/webp",
-		}
-
 		path = base_dir / m[2]
 		if path.suffix.lower() == ".svg":
 			data = embed(path).encode()  # recursive embed, as before

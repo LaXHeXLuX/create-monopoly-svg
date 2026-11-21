@@ -87,6 +87,7 @@ def position_element(el: svg, rotation=0, scale=1, cx="50%", cy="50%"):
 	return wrap(el, cx, cy)
 
 def position_image(tag: str, rotation=0, scale=1, cx="50%", cy="50%"):
+	if IMAGE_SCALE[tag] == 0: return None
 	return position_element(
 		image(tag), 
 		rotation=rotation, 
