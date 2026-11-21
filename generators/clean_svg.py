@@ -1,17 +1,20 @@
 import base64
 import re
 from pathlib import Path
-from conf.ui import FONT
+from conf.ui import FONTS, FONT_FILES, FONT_DIR, ROOT
 
-FONT_FILE = Path.home() / "Library/Fonts/ITCKabelStdMedium.TTF"
+base64_fonts = {}
 
-FONT_STYLE = (
-	f'<style>@font-face {{ font-family: "{FONT}"; '
-	f'src: url("data:font/otf;base64,{base64.b64encode(FONT_FILE.read_bytes()).decode()}"); }}'
-	f"</style>"
-)
+def font_face(weight):
+	if weight not in base64_fonts: 
+		base64_fonts[weight] = base64.b64encode((FONT_DIR / FONT_FILES[weight]).read_bytes()).decode()
+	return f'@font-face {{ font-family: "{FONTS[weight]}"; src: url("data:font/ttf;base64,{base64_fonts[weight]}"); }}'
 
-def embed_svg(svg, base_dir: Path = "."):
+def font_style(svg: str):
+	faces = [font_face(w) for w, name in FONTS.items() if f'font-family="{name}"' in svg]
+	return f"<style>{''.join(faces)}</style>" if faces else ""
+
+def embed_svg(svg, base_dir: Path = ROOT):
 	base_dir = Path(base_dir)
 	svg = str(svg)
 
@@ -24,10 +27,9 @@ def embed_svg(svg, base_dir: Path = "."):
 		svg,
 	)
 
-	# Add the font right after the opening <svg> tag if this file uses it
-	if FONT in svg:
-		svg = re.sub(r"<svg\b[^>]*>", lambda m: m[0] + FONT_STYLE, svg, count=1)
-
+	style = font_style(svg)
+	if style:
+		svg = re.sub(r"<svg\b[^>]*>", lambda m: m[0] + style, svg, count=1)
 	return svg
 
 def embed(path: Path):

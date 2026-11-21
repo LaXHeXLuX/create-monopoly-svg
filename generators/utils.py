@@ -1,6 +1,4 @@
-from conf.ui import FONT, FONT_BOLD, FONT_LIGHT, IMAGE_SCALE
-from conf.texts import CURRENCY
-FONTS = [FONT_LIGHT, FONT, FONT_BOLD]
+from conf.ui import FONTS, IMAGE_SCALE
 
 # SVG objects
 import svg
@@ -13,7 +11,7 @@ def text(txt: str, size=5, weight=0, align=0, fill="#000000"):
 		fill=fill,
 		text_anchor=anchor[align+1],
 		dominant_baseline="middle",
-		font_family=FONTS[weight+1],
+		font_family=FONTS[weight],
 		font_size=size,
 	)
 	if len(lines) == 1:

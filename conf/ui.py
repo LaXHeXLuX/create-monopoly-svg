@@ -3,6 +3,8 @@
 # The exception is IMAGE_SCALE, as the images aren't the same as in a standard Monopoly game
 
 from conf.game import ROW_SIZE
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
 
 # dimensions
 BOARD = 490
@@ -12,9 +14,18 @@ CENTER = BOARD - 2*CORNER
 TILE_WIDTH = CENTER / ROW_SIZE
 
 # fonts
-FONT = "ITCKabelStd"
-FONT_BOLD = "ITCKabelStd-Bold"
-FONT_LIGHT = "ITCKabelStd-Book"
+FONTS = {
+	-1: "ITCKabelStd-Book",
+	0: "ITCKabelStd",
+	1: "ITCKabelStd-Bold"
+}
+FONT_FILES = {
+	-1: "ITCKabelStdBook.TTF",
+	0: "ITCKabelStdMedium.TTF",
+	1: "ITCKabelStdBold.TTF"
+}
+FONT_DIR = ROOT / "fonts"
+
 
 # colors
 BG_COLOR = "#e8f4ea"
