@@ -16,7 +16,7 @@ TILE_WIDTH = CENTER / ROW_SIZE
 # fonts
 FONTS = {
 	-1: "ITCKabelStd-Book",
-	0: "ITCKabelStd",
+	0: "ITCKabelStd-Medium",
 	1: "ITCKabelStd-Bold"
 }
 FONT_FILES = {

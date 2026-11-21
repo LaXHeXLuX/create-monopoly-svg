@@ -1,4 +1,5 @@
 /decals
 /fonts
 /output
-*.svg
+/other
+output.svg
