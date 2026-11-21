@@ -1,6 +1,6 @@
 from conf.ui import CORNER, JAIL_COLOR
 from conf.game import GO_MONEY
-from conf.texts import price, IF_PASS_GET_MONEY, START, JUST, VISITING, JAIL_TEXTS, FREE, PARKING, GO_TO, JAIL
+from conf.texts import price, IF_PASS_GET_MONEY, GO, JUST, VISITING, JAIL_TEXTS, FREE, PARKING, GO_TO, JAIL
 from generators.utils import text, rect, wrap, canvas, position_image
 
 def c():
@@ -17,7 +17,7 @@ def go():
 	go = c()
 	go.elements.extend([
 		rotated_text(-5.5, 40.5, f"{IF_PASS_GET_MONEY} {price(GO_MONEY)}", size=5),
-		rotated_text(32, 32, START, size=12),
+		rotated_text(32, 32, GO, size=12),
 		position_image("GO", rotation=180, cx="70%", cy="70%")
 	])
 	return go

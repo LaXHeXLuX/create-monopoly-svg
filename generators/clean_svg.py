@@ -18,20 +18,39 @@ def embed_svg(svg, base_dir: Path = ROOT, embed_font: bool = False):
 	base_dir = Path(base_dir)
 	svg = str(svg)
 
-	# Replace href="something.svg" with the embedded (and itself embedded) file
+	def to_data_uri(m):
+		MIME = {
+			".svg": "image/svg+xml",
+			".jpg": "image/jpeg",
+			".jpeg": "image/jpeg",
+			".png": "image/png",
+			".gif": "image/gif",
+			".webp": "image/webp",
+		}
+
+		path = base_dir / m[2]
+		if path.suffix.lower() == ".svg":
+			data = embed(path).encode()  # recursive embed, as before
+			mime = "image/svg+xml"
+		else:
+			data = path.read_bytes()
+			mime = MIME[path.suffix.lower()]
+		return f'{m[1]}="data:{mime};base64,{base64.b64encode(data).decode()}"'
+
+	# Matches href="..." and xlink:href="..." pointing at local files
+	# (no '#' fragments, no ':' so URLs and existing data: URIs are skipped)
 	svg = re.sub(
-		r'href="([^"#:]+\.svg)"',
-		lambda m: 'href="data:image/svg+xml;base64,'
-		+ base64.b64encode(embed(base_dir / m[1]).encode()).decode()
-		+ '"',
+		r'((?:xlink:)?href)="([^"#:]+\.(?:svg|jpe?g|png|gif|webp))"',
+		to_data_uri,
 		svg,
+		flags=re.IGNORECASE,
 	)
 
 	if embed_font:
 		style = font_style(svg)
 		if style:
 			svg = re.sub(r"<svg\b[^>]*>", lambda m: m[0] + style, svg, count=1)
-		
+
 	return svg
 
 def embed(path: Path):

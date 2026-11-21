@@ -26,7 +26,6 @@ FONT_FILES = {
 }
 FONT_DIR = ROOT / "fonts"
 
-
 # colors
 BG_COLOR = "#e8f4ea"
 CENTER_COLOR = "#d9f6ff"
@@ -47,7 +46,13 @@ HOUSE_COLOR = "#1fb25a"
 HOTEL_COLOR = "#ff5353"
 JAIL_COLOR = "#ffa500"
 
-# image scales
+# images
+def image_file(tag: str):
+	special = {}
+	if tag in special: file = special[tag]
+	else: file = f"{tag}.svg"
+	return f"decals/{file}"
+
 IMAGE_SCALE = {
 	"S": 0.7,
 	"CH": 1,

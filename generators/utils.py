@@ -1,4 +1,4 @@
-from conf.ui import FONTS, IMAGE_SCALE
+from conf.ui import FONTS, IMAGE_SCALE, image_file
 
 # SVG objects
 import svg
@@ -70,7 +70,7 @@ def wrap(element: svg, x, y):
 
 def image(tag: str):
 	return svg.Image(
-		href=f"decals/{tag}.svg",
+		href=image_file(tag),
 		x="-50%", y="-50%",
 		width="100%", height="100%"
 	)
