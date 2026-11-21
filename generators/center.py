@@ -21,7 +21,7 @@ def center():
 	center = canvas(CENTER, CENTER)
 	center.elements.extend([
 		rect(CENTER_COLOR),
-		position_image("kaart", rotation=-45),
+		position_image("center", rotation=-45),
 		position_element(card_place(CC_NAME), cx=PADDING + WIDTH, cy=PADDING, rotation=90),
 		position_element(card_place(CH_NAME), cx=CENTER - PADDING - WIDTH, cy=CENTER - PADDING, rotation=270)
 	])

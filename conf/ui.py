@@ -48,5 +48,5 @@ IMAGE_SCALE = {
 	"GO": 0.6,
 	"FP": 0.45,
 	"GTJ": 0.45,
-	"kaart": 1.2
+	"center": 1.2
 }
