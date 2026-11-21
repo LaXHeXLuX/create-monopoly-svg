@@ -1,3 +1,5 @@
+# like texts.py, but for longer, multi-line texts
+
 from conf.game import GO_MONEY
 from conf.texts import PROPERTY_NAME, price
 
