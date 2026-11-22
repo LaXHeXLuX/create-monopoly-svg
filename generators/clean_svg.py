@@ -40,7 +40,7 @@ def embed_svg(svg, base_dir: Path = ROOT):
 	# Matches href="..." and xlink:href="..." pointing at local files
 	# (no '#' fragments, no ':' so URLs and existing data: URIs are skipped)
 	svg = re.sub(
-		r'((?:xlink:)?href)="([^"#:]+\.(?:svg|jpe?g|png|gif|webp))"',
+		r'((?:xlink:)?href)="(?!#|[a-z][a-z0-9+.-]+:)([^"]+)"',
 		to_data_uri,
 		svg,
 		flags=re.IGNORECASE,
