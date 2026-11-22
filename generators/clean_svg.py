@@ -30,7 +30,7 @@ def embed_svg(svg, base_dir: Path = ROOT):
 	def to_data_uri(m):
 		path = base_dir / m[2]
 		if path.suffix.lower() == ".svg":
-			data = embed(path).encode()  # recursive embed, as before
+			data = embed(path).encode()
 			mime = "image/svg+xml"
 		else:
 			data = path.read_bytes()
@@ -39,8 +39,6 @@ def embed_svg(svg, base_dir: Path = ROOT):
 			mime = MIME[path.suffix.lower()]
 		return f'{m[1]}="data:{mime};base64,{base64.b64encode(data).decode()}"'
 
-	# Matches href="..." and xlink:href="..." pointing at local files
-	# (no '#' fragments, no ':' so URLs and existing data: URIs are skipped)
 	svg = re.sub(
 		r'((?:xlink:)?href)="(?!#|[a-z][a-z0-9+.-]+:)([^"]+)"',
 		to_data_uri,

@@ -4,7 +4,7 @@ A program to create all necessary files for your own customized Monopoly game, w
 
 ## Quick guide
 1) Clone the repo.
-2) Change confs (relating to [game logic](conf/game.py), [visuals](conf/ui.py), or [texts](conf/texts.py) and [long texts](conf/long_texts.py)) where necessary.
+2) Change confs (relating to [input/output](conf/io.py), [game logic](conf/game.py), [visuals](conf/ui.py), or [texts](conf/texts.py) and [long texts](conf/long_texts.py)) where necessary.
 3) Replace the placeholder decal files.
 4) Make sure you have the `svg` library (`pip install svg.py`) and Python 3.12 or newer.
 5) Run `python main.py a` (you can also do steps 4 and 5 right after step 1).
@@ -18,7 +18,7 @@ Configuration is divided into five files:
 - [texts.py](conf/texts.py) &mdash; for customizing property names, the game name, as well as other small strings that show up on the board or cards.
 - [long_texts.py](conf/long_texts.py) &mdash; like the last one, but for longer multi-line strings, like on the utility cards and chance/community cards. Texts respect newline (`\n`) characters.
 - [ui.py](conf/ui.py) &mdash; for customizing anything visual, like colors, fonts, or game board dimensions. If you want the standard Monopoly look then you don't need to change those. However:
-	1) make sure you have the configured fonts installed. The standard Monopoly font is ITCKabelStd, but any installed font will work by configuring the FONTS and FONT_FILES dicts. 
+	1) make sure you have the configured fonts installed. The standard Monopoly font is ITCKabelStd, but any installed font will work by configuring the FONTS dict. If you want to embed fonts, add the fonts to a `fonts` folder in the project and their filenames to the FONT_FILES dict. 
 	2) you will need to change IMAGE_SCALE values so your decals look good on the board and cards, and might need to edit the *special* dict in the *image_file* method as well (explained in the next section).
 
 All texts are currently customized for an Estonian Hiiumaa-oriented game.
@@ -26,7 +26,7 @@ All texts are currently customized for an Estonian Hiiumaa-oriented game.
 ## Adding your images
 I've included decals of the community chest and chance icons, the tax tile icons, and the GO square arrow. As a placeholder, the chance icon replaces everything that's missing, so you can test the program before adding your images.
 
-Add your images to the decals folder and name them as such:
+Add your images to the decals folder (the folder set by DECAL_PATH in [io.py](conf/io.py)) and name them as such:
 - Community chest: "CC.svg"
 - Chance: "CH.svg"
 - Free Parking (one of the corners): "FP.svg"
