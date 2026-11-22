@@ -34,6 +34,8 @@ def embed_svg(svg, base_dir: Path = ROOT):
 			mime = "image/svg+xml"
 		else:
 			data = path.read_bytes()
+			if path.suffix.lower() not in MIME:
+				raise ValueError(f"Unsupported image type: {path}")
 			mime = MIME[path.suffix.lower()]
 		return f'{m[1]}="data:{mime};base64,{base64.b64encode(data).decode()}"'
 
