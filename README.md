@@ -12,7 +12,8 @@ A program to create all necessary files for your own customized Monopoly game, w
 7) If you need to convert them to png/pdf/..., you must do so yourself.
 
 ## Configuration
-Configuration is divided into four files:
+Configuration is divided into five files:
+- [io.py](conf/io.py) &mdash; input-output rules for the program itself: the decal folder, the output folder, and whether to embed fonts in output files.
 - [game.py](conf/game.py) &mdash; for board layout, property values, rents, house costs, etc. If you plan to follow the standard rules then you don't need to change anything here.
 - [texts.py](conf/texts.py) &mdash; for customizing property names, the game name, as well as other small strings that show up on the board or cards.
 - [long_texts.py](conf/long_texts.py) &mdash; like the last one, but for longer multi-line strings, like on the utility cards and chance/community cards. Texts respect newline (`\n`) characters.

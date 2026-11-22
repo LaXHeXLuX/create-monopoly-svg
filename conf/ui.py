@@ -3,8 +3,8 @@
 # The exception is IMAGE_SCALE, as the images aren't the same as in a standard Monopoly game
 
 from conf.game import ROW_SIZE
+from conf.io import DECAL_PATH, ROOT
 from pathlib import Path
-ROOT = Path(__file__).resolve().parent.parent
 
 # dimensions
 BOARD = 490
@@ -50,11 +50,11 @@ def image_file(tag: str):
 	special = {}
 	if tag in special: file = special[tag]
 	else: file = f"{tag}.svg"
-	return f"decals/{file}"
+	return Path(DECAL_PATH).expanduser() / file
 
 IMAGE_SCALE = {
 	"S": 0.7,
-	"CH": 1,
+	"CH": 0.8,
 	"CC": 0.8,
 	"T0": 0.2,
 	"T1": 0.2,

@@ -1,7 +1,8 @@
 import base64
 import re
 from pathlib import Path
-from conf.ui import FONTS, FONT_FILES, FONT_DIR, ROOT
+from conf.ui import FONTS, FONT_FILES, FONT_DIR
+from conf.io import ROOT, EMBED_FONTS
 
 base64_fonts = {}
 
@@ -23,8 +24,7 @@ MIME = {
 	".webp": "image/webp",
 }
 
-def embed_svg(svg, base_dir: Path = ROOT, embed_font: bool = False):
-	base_dir = Path(base_dir)
+def embed_svg(svg, base_dir: Path = ROOT):
 	svg = str(svg)
 
 	def to_data_uri(m):
@@ -46,7 +46,7 @@ def embed_svg(svg, base_dir: Path = ROOT, embed_font: bool = False):
 		flags=re.IGNORECASE,
 	)
 
-	if embed_font:
+	if EMBED_FONTS:
 		style = font_style(svg)
 		if style:
 			svg = re.sub(r"<svg\b[^>]*>", lambda m: m[0] + style, svg, count=1)
